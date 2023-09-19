@@ -25,4 +25,5 @@ public abstract class Articulo {
         this.descripcion = descripcion;
         this.id = id;
     }
+
 }
