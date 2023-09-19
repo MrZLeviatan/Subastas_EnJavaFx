@@ -1,4 +1,4 @@
-package co.edu.uniquindio.SubastasUniquindio;
+package co.edu.uniquindio.SubastasUniquindio.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
