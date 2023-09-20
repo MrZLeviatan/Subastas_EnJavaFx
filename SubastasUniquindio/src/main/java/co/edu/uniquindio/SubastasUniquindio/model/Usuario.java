@@ -20,7 +20,7 @@ public class Usuario {
         this.fechaNacimiento = fechaNacimiento;
         this.edad = edad;
     }
-
+//@Mapper
     public static Usuario of (String nombre,String cedula, String correo, String contraseña, LocalDate fechaNacimiento, int edad)throws Exception{
         if(Objects.requireNonNull(nombre,"el nombre es requerido").isBlank()){//verifica si es nulo, que no sean solo espacios
             throw new ValorRequeridoException("nombre");
