@@ -13,7 +13,8 @@ module co.edu.uniquindio.marketplace {
 
     opens co.edu.uniquindio.SubastasUniquindio to javafx.fxml;
     exports co.edu.uniquindio.SubastasUniquindio;
-
     opens co.edu.uniquindio.SubastasUniquindio.controller to javafx.fxml;
     exports co.edu.uniquindio.SubastasUniquindio.controller;
+    opens co.edu.uniquindio.SubastasUniquindio.viewController to javafx.fxml;
+    exports co.edu.uniquindio.SubastasUniquindio.viewController;
 }
