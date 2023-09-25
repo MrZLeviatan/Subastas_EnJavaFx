@@ -9,10 +9,27 @@ import co.edu.uniquindio.SubastasUniquindio.model.SubastasUq;
 import co.edu.uniquindio.SubastasUniquindio.util.SubastaUtils;
 import org.mapstruct.Named;
 
+import java.util.List;
+
 public class ModelFactoryController implements IModelFactoryController {
 
     SubastasUq subastasUq;
     SubastaMapper mapper= SubastaMapper.INSTANCE;
+
+    @Override
+    public List<Persona> obtenerPersonas() {
+        return null;
+    }
+
+    @Override
+    public boolean agregarUsuario(UsuarioDto usuarioDto) {
+        return false;
+    }
+
+    @Override
+    public boolean eliminarEmpleado(String cedula) {
+        return false;
+    }
 
     //creamos el singleton
     public static class SingletonHolder {
