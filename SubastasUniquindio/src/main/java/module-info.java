@@ -1,4 +1,4 @@
-module mrzleviatan.subastaUq {
+module mrzleviatan.marketplace {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
