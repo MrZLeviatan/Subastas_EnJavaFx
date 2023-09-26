@@ -1,4 +1,4 @@
-module co.edu.uniquindio.marketplace {
+module mrzleviatan.marketplace {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -11,6 +11,14 @@ module co.edu.uniquindio.marketplace {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
 
-    opens co.edu.uniquindio.SubastasUniquindio to javafx.fxml;
-    exports co.edu.uniquindio.SubastasUniquindio;
+    opens co.edu.uniquindio.subastasUq to javafx.fxml;
+    exports co.edu.uniquindio.subastasUq;
+    exports co.edu.uniquindio.subastasUq.viewController;
+    opens co.edu.uniquindio.subastasUq.viewController to javafx.fxml;
+    exports co.edu.uniquindio.subastasUq.controller;
+    exports co.edu.uniquindio.subastasUq.mapping.dto;
+    exports co.edu.uniquindio.subastasUq.mapping.mappers;
+    exports co.edu.uniquindio.subastasUq.model;
+    opens co.edu.uniquindio.subastasUq.controller to javafx.fxml;
+
 }
