@@ -6,9 +6,10 @@ public class Comprador extends Persona{
 
     private Usuario usuario;
 
-
-    public Comprador() {
-
+    public Comprador(String nombre, String apellido, String cedula, Integer edad, String direccion, Usuario usuario) {
+        super(nombre, apellido, cedula, edad);
+        this.direccion = direccion;
+        this.usuario = usuario;
     }
 
     public Usuario getUsuario() {
