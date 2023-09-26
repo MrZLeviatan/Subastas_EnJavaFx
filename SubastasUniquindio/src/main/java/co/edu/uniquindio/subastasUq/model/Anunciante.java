@@ -5,11 +5,13 @@ import java.util.ArrayList;
 public class Anunciante extends Persona {
 
     private Usuario usuario;
-    ArrayList<Producto> listaProductoAnunciante = new ArrayList<Producto>();
-    ArrayList<Anuncios> listaAnunciosAnunciante = new ArrayList<Anuncios>();
+    ArrayList<Producto> listaProductoAnunciante = new ArrayList<>();
+    ArrayList<Anuncios> listaAnunciosAnunciante = new ArrayList<>();
 
 
-   public Anunciante(){
+   public Anunciante(String nombre, String apellido, String cedula, Integer edad, Usuario usuario){
+       super(nombre, apellido, cedula, edad);
+       this.usuario = usuario;
 
    }
 

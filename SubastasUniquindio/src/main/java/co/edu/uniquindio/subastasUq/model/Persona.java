@@ -10,6 +10,13 @@ public abstract class Persona {
 
     public Persona(){}
 
+    public Persona(String nombre, String apellido, String cedula, Integer edad) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.cedula = cedula;
+        this.edad = edad;
+    }
+
 
     public String getNombre() {
         return nombre;

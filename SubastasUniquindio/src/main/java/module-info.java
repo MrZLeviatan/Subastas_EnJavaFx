@@ -1,4 +1,4 @@
-module mrzleviatan.marketplace {
+module mrzleviatan.subastaUq {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -9,7 +9,6 @@ module mrzleviatan.marketplace {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
-    requires com.almasb.fxgl.all;
     requires org.mapstruct;
 
     opens co.edu.uniquindio.subastasUq to javafx.fxml;

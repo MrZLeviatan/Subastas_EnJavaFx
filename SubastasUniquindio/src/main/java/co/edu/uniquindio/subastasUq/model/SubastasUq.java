@@ -5,7 +5,7 @@ import co.edu.uniquindio.subastasUq.model.services.IMarketPlaceService;
 
 import java.util.ArrayList;
 
-public class MarketPlace implements IMarketPlaceService {
+public class SubastasUq implements IMarketPlaceService {
 
     ArrayList<Anunciante> listaAnunciantes = new ArrayList<>();
     ArrayList<Comprador> listaComprador = new ArrayList<>();
@@ -13,7 +13,7 @@ public class MarketPlace implements IMarketPlaceService {
 
     // ?? ArrayList<Puja> listaPuja = new ArrayList<>();
 
-    public MarketPlace() {
+    public SubastasUq() {
 
     }
 
@@ -51,7 +51,7 @@ public class MarketPlace implements IMarketPlaceService {
             throw new AnuncianteException("El empleado con cedula: " + cedula + "Ya Existe");
 
         }else {
-            nuevoAnunciante = new Anunciante();
+            nuevoAnunciante = new Anunciante("andrey", "tombe", "123445", 12, new Usuario("andrey3681.ay@gmail.com", "1234", "a"));
             nuevoAnunciante.setNombre(nombre);
             nuevoAnunciante.setApellido(apellido);
             nuevoAnunciante.setCedula(cedula);
@@ -71,5 +71,9 @@ public class MarketPlace implements IMarketPlaceService {
         }
         return anuncianteEncontrado;
 
+    }
+
+    public void agregarUsuario(Anunciante anunciante) {
+        listaAnunciantes.add(anunciante);
     }
 }
