@@ -10,6 +10,7 @@ module mrzleviatan.marketplace {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires org.mapstruct;
 
     opens co.edu.uniquindio.subastasUq to javafx.fxml;
     exports co.edu.uniquindio.subastasUq;
