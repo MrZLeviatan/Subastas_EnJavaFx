@@ -65,8 +65,9 @@ public class SubastasUq  {
             }else {
                 if(correoExistente(compradorTemporal.getUsuario().getCorreo())){
                     throw new UsuarioException("el correo:"+compradorTemporal.getUsuario().getCorreo()+" ya existe");
+                }else {
+                    listaComprador.add(compradorTemporal);//lo añade ala lista de anunciantes
                 }
-                listaComprador.add(compradorTemporal);
             }
         }
         else {

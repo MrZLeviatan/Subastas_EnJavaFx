@@ -1,7 +1,4 @@
-import co.edu.uniquindio.subastasUq.model.Anunciante;
-import co.edu.uniquindio.subastasUq.model.Comprador;
-import co.edu.uniquindio.subastasUq.model.SubastasUq;
-import co.edu.uniquindio.subastasUq.model.Usuario;
+import co.edu.uniquindio.subastasUq.model.*;
 import co.edu.uniquindio.subastasUq.utils.SubastaUqUtils;
 import org.junit.jupiter.api.Test;
 
@@ -44,4 +41,5 @@ public class UsuariosTest {
         subastasUq.addUsuario( new Anunciante("andrey","122","12345",12,
                 new Usuario("andrey3681","1234","andrey3681.ay@gmail.com"))); //crea y añade un anunciante
     }
+
 }

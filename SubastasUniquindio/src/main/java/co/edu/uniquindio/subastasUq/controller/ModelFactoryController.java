@@ -1,7 +1,9 @@
 package co.edu.uniquindio.subastasUq.controller;
 
+import co.edu.uniquindio.subastasUq.mapping.dto.CompradorDto;
 import co.edu.uniquindio.subastasUq.mapping.mappers.SubastaMapper;
 import co.edu.uniquindio.subastasUq.model.SubastasUq;
+import co.edu.uniquindio.subastasUq.utils.SubastaUqUtils;
 
 public class ModelFactoryController {
     SubastasUq subastaUq;
@@ -18,10 +20,11 @@ public class ModelFactoryController {
 
     public ModelFactoryController() {
         System.out.println("invocación clase singleton");
-        cargarDatosBase();
+        subastaUq=new SubastasUq();
     }
 
-    private void cargarDatosBase() {
-
+    public boolean añadirComprador(CompradorDto compradorDto){
+        return true;
     }
+
 }
