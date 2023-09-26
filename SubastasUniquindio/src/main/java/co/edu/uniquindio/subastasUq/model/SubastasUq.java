@@ -1,11 +1,11 @@
 package co.edu.uniquindio.subastasUq.model;
 
 import co.edu.uniquindio.subastasUq.exceptions.AnuncianteException;
-import co.edu.uniquindio.subastasUq.model.services.IMarketPlaceService;
+import co.edu.uniquindio.subastasUq.model.services.ISubastasService;
 
 import java.util.ArrayList;
 
-public class MarketPlace implements IMarketPlaceService {
+public class SubastasUq implements ISubastasService {
 
     ArrayList<Anunciante> listaAnunciantes = new ArrayList<>();
     ArrayList<Comprador> listaComprador = new ArrayList<>();
@@ -13,7 +13,7 @@ public class MarketPlace implements IMarketPlaceService {
 
     // ?? ArrayList<Puja> listaPuja = new ArrayList<>();
 
-    public MarketPlace() {
+    public SubastasUq() {
 
     }
 
