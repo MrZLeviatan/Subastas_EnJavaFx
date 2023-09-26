@@ -8,7 +8,6 @@ module mrzleviatan.marketplace {
     requires net.synedra.validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
-    requires eu.hansolo.tilesfx;
     requires org.mapstruct;
 
     opens co.edu.uniquindio.subastasUq to javafx.fxml;

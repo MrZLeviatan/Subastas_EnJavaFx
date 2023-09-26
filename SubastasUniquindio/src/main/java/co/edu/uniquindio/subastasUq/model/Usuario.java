@@ -10,6 +10,7 @@ public class Usuario {
     public Usuario(String username, String constrasenia,String correo) {
         this.username = username;
         this.constrasenia = constrasenia;
+        this.correo=correo;
     }
 
     //CONSTRUCTOR SIN PARAMETROS

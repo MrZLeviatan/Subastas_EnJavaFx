@@ -7,7 +7,7 @@ import co.edu.uniquindio.subastasUq.model.services.IMarketPlaceService;
 
 import java.util.ArrayList;
 
-public class SubastasUq implements IMarketPlaceService {
+public class SubastasUq  {
 
     ArrayList<Anunciante> listaAnunciantes = new ArrayList<>();
     ArrayList<Comprador> listaComprador = new ArrayList<>();
@@ -44,36 +44,6 @@ public class SubastasUq implements IMarketPlaceService {
     }
 
 
-    @Override
-    public Anunciante crearAnunciante(String nombre, String apellido, String cedula, int edad) throws AnuncianteException {
-
-        Anunciante nuevoAnunciante = null;
-        boolean anuncianteExistente = anuncianteExiste(cedula);
-        if(anuncianteExistente) {
-            throw new AnuncianteException("El empleado con cedula: " + cedula + "Ya Existe");
-
-        }else {
-            nuevoAnunciante = new Anunciante("andrey", "tombe", "123445", 12, new Usuario("andrey3681.ay@gmail.com", "1234", "a"));
-            nuevoAnunciante.setNombre(nombre);
-            nuevoAnunciante.setApellido(apellido);
-            nuevoAnunciante.setCedula(cedula);
-            nuevoAnunciante.setEdad(edad);
-        }
-        return nuevoAnunciante;
-    }
-
-
-    public boolean anuncianteExiste(String cedula) {
-        boolean anuncianteEncontrado = false;
-        for (Anunciante anunciante : getListaAnunciantes()) {
-            if (anunciante.getCedula().equalsIgnoreCase(cedula)) {
-                anuncianteEncontrado = true;
-                break;
-            }
-        }
-        return anuncianteEncontrado;
-
-    }
 
     public void addUsuario(Persona usuario) throws Exception{
         if(usuario instanceof Anunciante){ //verifica si el usuario que se ingreso es de tipo Anunciante
@@ -88,7 +58,7 @@ public class SubastasUq implements IMarketPlaceService {
                 }
             }
         }
-        if(usuario instanceof Comprador){ //verifica si el usario que se ingreso es de tipo Comprador
+        else if(usuario instanceof Comprador){ //verifica si el usario que se ingreso es de tipo Comprador
             Comprador compradorTemporal= (Comprador) usuario; //transforma al usuario en un Comprador
             if(usuarioExiste(compradorTemporal.getCedula())){ //verifica si la cedula esta registrada
                 throw new CompradorException("el comprador con la cedula:"+compradorTemporal.getCedula()+" ya existe");
