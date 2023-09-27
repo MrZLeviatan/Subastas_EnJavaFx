@@ -1,17 +1,12 @@
 package co.edu.uniquindio.subastasUq.model;
 
-import co.edu.uniquindio.subastasUq.exceptions.AnuncianteException;
-import co.edu.uniquindio.subastasUq.exceptions.CompradorException;
-import co.edu.uniquindio.subastasUq.exceptions.UsuarioException;
-import co.edu.uniquindio.subastasUq.model.services.IMarketPlaceService;
-
 import java.util.ArrayList;
 
 public class SubastasUq  {
 
     ArrayList<Anunciante> listaAnunciantes = new ArrayList<>();
     ArrayList<Comprador> listaComprador = new ArrayList<>();
-    ArrayList<Anuncios> listaAnuncios = new ArrayList<>();
+    ArrayList<Anuncio> listaAnuncios = new ArrayList<>();
 
     // ?? ArrayList<Puja> listaPuja = new ArrayList<>();
 
@@ -35,40 +30,24 @@ public class SubastasUq  {
         this.listaComprador = listaComprador;
     }
 
-    public ArrayList<Anuncios> getListaAnuncios() {
+    public ArrayList<Anuncio> getListaAnuncios() {
         return listaAnuncios;
     }
 
-    public void setListaAnuncios(ArrayList<Anuncios> listaAnuncios) {
+    public void setListaAnuncios(ArrayList<Anuncio> listaAnuncios) {
         this.listaAnuncios = listaAnuncios;
     }
 
 
 
-    public void addUsuario(Persona usuario) throws Exception{
+    public void addUsuario(Persona usuario){
         if(usuario instanceof Anunciante){ //verifica si el usuario que se ingreso es de tipo Anunciante
             Anunciante anuncianteTemporal=(Anunciante) usuario; //transforma al usuario en un anunciante
-            if(usuarioExiste(anuncianteTemporal.getCedula())){//verifica si la cedula esta registrada
-                throw new  AnuncianteException("el anunciante con la cedula: "+ anuncianteTemporal.getCedula()+" ya existe");
-            }else {
-                if(correoExistente(anuncianteTemporal.getUsuario().getCorreo())){ //verifica si el correo esta usado tanto en compradores como anunciantes
-                    throw new UsuarioException("el correo:"+anuncianteTemporal.getUsuario().getCorreo()+" ya existe");
-                }else {
-                    listaAnunciantes.add(anuncianteTemporal); //lo añadde ala lista de anunciantes
-                }
-            }
+            listaAnunciantes.add(anuncianteTemporal); //lo añadde ala lista de anunciantes
         }
         else if(usuario instanceof Comprador){ //verifica si el usario que se ingreso es de tipo Comprador
             Comprador compradorTemporal= (Comprador) usuario; //transforma al usuario en un Comprador
-            if(usuarioExiste(compradorTemporal.getCedula())){ //verifica si la cedula esta registrada
-                throw new CompradorException("el comprador con la cedula:"+compradorTemporal.getCedula()+" ya existe");
-            }else {
-                if(correoExistente(compradorTemporal.getUsuario().getCorreo())){
-                    throw new UsuarioException("el correo:"+compradorTemporal.getUsuario().getCorreo()+" ya existe");
-                }else {
-                    listaComprador.add(compradorTemporal);//lo añade ala lista de anunciantes
-                }
-            }
+            listaComprador.add(compradorTemporal);//lo añade ala lista de anunciantes
         }
         else {
             System.out.println(" no se detecto nada");
@@ -137,5 +116,20 @@ public class SubastasUq  {
             }
         }
         return existe;
+    }
+
+    public Anunciante obtenerAnunciante(String cedula) {
+        return listaAnunciantes.stream().filter(anunciante -> anunciante.getCedula().equals(cedula)).findFirst().get();
+    }
+
+    public void addAnuncio(Anuncio anuncio,String cedula) {
+        Anunciante anunciante=obtenerAnunciante(cedula);
+        anunciante.addAnuncioAnunciante(anuncio);
+        listaAnuncios.add(anuncio);
+    }
+
+    public void addProductoAnunciante(Producto producto,String cedula) {
+        Anunciante anunciante= obtenerAnunciante(cedula);
+        anunciante.addProducto(producto);
     }
 }

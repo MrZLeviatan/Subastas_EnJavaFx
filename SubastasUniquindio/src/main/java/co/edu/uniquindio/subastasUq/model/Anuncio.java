@@ -3,7 +3,7 @@ package co.edu.uniquindio.subastasUq.model;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Anuncios {
+public class Anuncio {
 
     private String codigoAnuncio;
     private Producto producto;
@@ -17,7 +17,7 @@ public class Anuncios {
     ArrayList<Puja> listaPujaProducto = new ArrayList<Puja>();
 
 
-    public Anuncios(){
+    public Anuncio(){
     }
 
     public LocalDate getFechaInicio() {

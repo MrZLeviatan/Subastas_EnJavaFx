@@ -1,8 +1,5 @@
 import co.edu.uniquindio.subastasUq.model.*;
-import co.edu.uniquindio.subastasUq.utils.SubastaUqUtils;
 import org.junit.jupiter.api.Test;
-
-import static co.edu.uniquindio.subastasUq.utils.SubastaUqUtils.inicializarDatos;
 
 public class UsuariosTest {
     @Test
@@ -11,6 +8,10 @@ public class UsuariosTest {
         subastasUq.addUsuario( new Anunciante("andrey","122","123445",12,
                 new Usuario("andrey3681","1234","andrey3681.ay@gmail.com"))); //crea y añade un anunciante
         subastasUq.getListaAnunciantes().forEach(anunciante -> System.out.println(anunciante.getApellido()));
+        Anunciante anunciante=subastasUq.obtenerAnunciante("123445");
+        anunciante.addProducto(new Producto("cosa","223",null,TipoProductos.BIENRAIZ));
+
+        System.out.println(anunciante.getListaProductoAnunciante().get(0).getNombre());
 
     }
 
@@ -19,7 +20,7 @@ public class UsuariosTest {
         SubastasUq subastasUq= new SubastasUq(); //instancia
         subastasUq.addUsuario((new Comprador("luis", "fernando", "12345", 13, "addsadada",
                 new Usuario("luis123","12345","luis@gmail")))); //crea y añade un comprador
-        subastasUq.getListaComprador().forEach(comprador -> System.out.println(comprador.getUsuario().getCorreo()));
+        subastasUq.getListaComprador().forEach(comprador -> System.out.println(comprador.getUsuario()));
     }
 
     @Test

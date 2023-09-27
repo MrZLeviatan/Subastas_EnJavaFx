@@ -1,41 +1,53 @@
 package co.edu.uniquindio.subastasUq.model;
 
+import co.edu.uniquindio.subastasUq.model.services.IAnunciante;
+
 import java.util.ArrayList;
 
-public class Anunciante extends Persona {
+public class Anunciante extends Persona implements IAnunciante {
 
     private Usuario usuario;
-    ArrayList<Producto> listaProductoAnunciante = new ArrayList<>();
-    ArrayList<Anuncios> listaAnunciosAnunciante = new ArrayList<>();
+    private ArrayList<Producto> listaProductosAnunciante = new ArrayList<>();
+    private ArrayList<Anuncio> listaAnuncioAnunciante = new ArrayList<>();
 
 
-   public Anunciante(String nombre, String apellido, String cedula, Integer edad, Usuario usuario){
+   public Anunciante(String nombre, String
+           apellido, String cedula, Integer edad, Usuario usuario){
        super(nombre, apellido, cedula, edad);
        this.usuario = usuario;
 
    }
-
     public ArrayList<Producto> getListaProductoAnunciante() {
-        return listaProductoAnunciante;
+        return listaProductosAnunciante;
     }
 
-    public void setListaProductoAnunciante(ArrayList<Producto> listaProductoAnunciante) {
-        this.listaProductoAnunciante = listaProductoAnunciante;
+    public ArrayList<Anuncio> getListaAnunciosAnunciante() {
+        return listaAnuncioAnunciante;
     }
 
-    public ArrayList<Anuncios> getListaAnunciosAnunciante() {
-        return listaAnunciosAnunciante;
-    }
 
-    public void setListaAnunciosAnunciante(ArrayList<Anuncios> listaAnunciosAnunciante) {
-        this.listaAnunciosAnunciante = listaAnunciosAnunciante;
-    }
 
     public Usuario getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+
+    public void addProducto(Producto producto){
+       listaProductosAnunciante.add(producto);
     }
+    public void eleminarProducto(Producto producto){
+       listaProductosAnunciante.remove(producto);
+    }
+
+
+    public void addAnuncioAnunciante(Anuncio anuncio){
+       listaAnuncioAnunciante.add(anuncio);
+    }
+
+    public void eliminarAnuncio(Anuncio anuncio){
+       listaAnuncioAnunciante.remove(anuncio);
+    }
+
+
+
 }
