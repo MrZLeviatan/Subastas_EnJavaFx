@@ -1,6 +1,8 @@
 package co.edu.uniquindio.subastasUq.controller;
 
 import co.edu.uniquindio.subastasUq.controller.service.IModelFactoryController;
+import co.edu.uniquindio.subastasUq.exceptions.AnuncianteException;
+import co.edu.uniquindio.subastasUq.exceptions.CompradorException;
 import co.edu.uniquindio.subastasUq.mapping.dto.AnuncianteDto;
 import co.edu.uniquindio.subastasUq.mapping.dto.AnuncioDto;
 import co.edu.uniquindio.subastasUq.mapping.dto.CompradorDto;
@@ -44,6 +46,19 @@ public class ModelFactoryController implements IModelFactoryController {
     }
 
     @Override
+    public boolean deleteComprador(String cedula) throws CompradorException {
+        Comprador comprador=null;
+        comprador=subastaUq.obtenerComprador(cedula);
+        if(comprador==null){
+            throw new CompradorException(" el comprador no existe");
+        }else {
+            subastaUq.deleteUsuario(comprador);
+            return true;
+        }
+
+    }
+
+    @Override
     public boolean addAnunciante(AnuncianteDto anuncianteDto){
         try {
             if(!subastaUq.usuarioExiste(anuncianteDto.cedula())){
@@ -55,6 +70,19 @@ public class ModelFactoryController implements IModelFactoryController {
             e.getMessage();
             return false;
         }
+    }
+
+    @Override
+    public boolean deleteAnunciante(String cedula) throws AnuncianteException {
+        Anunciante anunciante=null;
+        anunciante=subastaUq.obtenerAnunciante(cedula);
+        if(anunciante==null){
+            throw new AnuncianteException("el anunciante no existe");
+        }else {
+            subastaUq.deleteUsuario(anunciante);
+            return true;
+        }
+
     }
 
     @Override

@@ -10,7 +10,6 @@ public class UsuariosTest {
         subastasUq.getListaAnunciantes().forEach(anunciante -> System.out.println(anunciante.getApellido()));
         Anunciante anunciante=subastasUq.obtenerAnunciante("123445");
         anunciante.addProducto(new Producto("cosa","223",null,TipoProductos.BIENRAIZ));
-
         System.out.println(anunciante.getListaProductoAnunciante().get(0).getNombre());
 
     }
@@ -41,6 +40,13 @@ public class UsuariosTest {
                 new Usuario("luis123","12345","luis@gmail")))); //crea y añade un comprador
         subastasUq.addUsuario( new Anunciante("andrey","122","12345",12,
                 new Usuario("andrey3681","1234","andrey3681.ay@gmail.com"))); //crea y añade un anunciante
+    }
+
+    @Test
+    public void test(){
+        SubastasUq subastasUq= new SubastasUq(); //instancia
+        subastasUq.addUsuario(null);
+
     }
 
 }

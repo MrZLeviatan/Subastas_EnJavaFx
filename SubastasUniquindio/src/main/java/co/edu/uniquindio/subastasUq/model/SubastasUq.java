@@ -1,5 +1,7 @@
 package co.edu.uniquindio.subastasUq.model;
 
+import co.edu.uniquindio.subastasUq.exceptions.AnuncianteException;
+
 import java.util.ArrayList;
 
 public class SubastasUq  {
@@ -48,9 +50,21 @@ public class SubastasUq  {
         else if(usuario instanceof Comprador){ //verifica si el usario que se ingreso es de tipo Comprador
             Comprador compradorTemporal= (Comprador) usuario; //transforma al usuario en un Comprador
             listaComprador.add(compradorTemporal);//lo añade ala lista de anunciantes
+        }else {
+            if(usuario==null){
+                throw new RuntimeException("el usuario es nulo");
+            }
         }
-        else {
-            System.out.println(" no se detecto nada");
+    }
+
+    public void deleteUsuario(Persona usuario){
+        if(usuario instanceof Anunciante){
+            Anunciante anuncianteTemporal=(Anunciante) usuario;
+            listaAnunciantes.remove(anuncianteTemporal);
+        }
+        if (usuario instanceof Comprador) {
+            Comprador compradorTemporal = (Comprador) usuario;
+            listaComprador.remove(compradorTemporal);
         }
     }
 
@@ -120,6 +134,10 @@ public class SubastasUq  {
 
     public Anunciante obtenerAnunciante(String cedula) {
         return listaAnunciantes.stream().filter(anunciante -> anunciante.getCedula().equals(cedula)).findFirst().get();
+    }
+
+    public Comprador obtenerComprador(String cedula){
+        return listaComprador.stream().filter(comprador -> comprador.getCedula().equals(cedula)).findFirst().get();
     }
 
     public void addAnuncio(Anuncio anuncio,String cedula) {
