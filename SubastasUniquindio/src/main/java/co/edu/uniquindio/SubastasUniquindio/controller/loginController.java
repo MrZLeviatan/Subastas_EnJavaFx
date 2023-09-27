@@ -22,7 +22,6 @@ public class loginController {
     public TableColumn fechaListaPujas;
     public TableView tablaAnuncios;
     public TableColumn ofertaInicalListaPujas;
-    public TableColumn AnuncianteListaAnuncios;
     public TableView tablaAnuncios1;
     public Text textPuja;
     public TextField pujaRealizadaDato;
@@ -31,6 +30,12 @@ public class loginController {
     public TextField ofertaPuja;
     public Button elegirPujaGanadora;
     public Text text1;
+    public TableColumn AnuncianteListaAnuncios2;
+    public TableColumn nombreListaAnuncios2;
+    public TableColumn codigoListaAnuncios2;
+    public Text textCodigo;
+    public Text textfechaPuja;
+    public Text textPuja1;
     @FXML
     private Label welcomeText;
 

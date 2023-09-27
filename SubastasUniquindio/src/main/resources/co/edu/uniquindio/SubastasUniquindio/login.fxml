@@ -42,7 +42,7 @@
                        <items>
                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="502.0" prefWidth="277.0">
                               <children>
-                                 <Rectangle arcHeight="6.0" arcWidth="6.0" fill="#E58B5CFF" height="553.0" layoutX="-3.0" layoutY="8.0" stroke="BLACK" strokeType="INSIDE" width="318.0" />
+                                 <Rectangle arcHeight="6.0" arcWidth="6.0" fill="#E58B5CFF" height="564.0" layoutX="-3.0" layoutY="-3.0" stroke="BLACK" strokeType="INSIDE" width="318.0" />
                                  <Text disable="true" fill="WHITE" layoutX="55.0" layoutY="256.0" lineSpacing="2.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Subastas Uniquindio" textAlignment="CENTER" wrappingWidth="202.13671875">
                                     <font>
                                        <Font name="Cambria Bold" size="31.0" />
@@ -463,7 +463,7 @@
                        <items>
                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                               <children>
-                                 <TableView fx:id="tablaAnuncios" layoutX="20.0" layoutY="98.0" prefHeight="327.0" prefWidth="302.0">
+                                 <TableView fx:id="tablaAnuncios" layoutX="20.0" layoutY="98.0" prefHeight="414.0" prefWidth="302.0">
                                    <columns>
                                      <TableColumn fx:id="nombreListaAnuncios" prefWidth="98.0" text="Nombre" />
                                      <TableColumn fx:id="codigoListaAnuncios" prefWidth="97.0" text="Código" />
@@ -509,9 +509,9 @@
                   <children>
                      <TableView fx:id="tablaAnunciosGestionPujas" layoutX="28.0" layoutY="107.0" prefHeight="341.0" prefWidth="360.0">
                         <columns>
-                           <TableColumn fx:id="AnuncianteListaAnuncios" prefWidth="104.0" text="Anunciante" />
-                           <TableColumn fx:id="nombreListaAnuncios" prefWidth="100.0" text="Nombre" />
-                           <TableColumn fx:id="codigoListaAnuncios" prefWidth="96.0" text="Codigo" />
+                           <TableColumn fx:id="AnuncianteListaAnuncios2" prefWidth="104.0" text="Anunciante" />
+                           <TableColumn fx:id="nombreListaAnuncios2" prefWidth="100.0" text="Nombre" />
+                           <TableColumn fx:id="codigoListaAnuncios2" prefWidth="96.0" text="Codigo" />
                         </columns>
                      </TableView>
                      <Text layoutX="76.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista de Anuncios." wrappingWidth="150.0947265625">
@@ -548,7 +548,7 @@
                                  <Font name="Cambria Bold" size="14.0" />
                               </font>
                            </Text>
-                           <Text fx:id="textPuja" strokeType="OUTSIDE" strokeWidth="0.0" text="Oferta:" wrappingWidth="150.0947265625" GridPane.rowIndex="5">
+                           <Text fx:id="textPuja1" strokeType="OUTSIDE" strokeWidth="0.0" text="Oferta:" wrappingWidth="150.0947265625" GridPane.rowIndex="5">
                               <font>
                                  <Font name="Cambria Bold" size="14.0" />
                               </font>
