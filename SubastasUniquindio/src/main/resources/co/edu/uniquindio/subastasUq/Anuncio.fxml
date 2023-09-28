@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <SplitPane dividerPositions="0.3953033268101761" layoutX="1.0" layoutY="4.0" orientation="VERTICAL" prefHeight="513.0" prefWidth="746.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="258.0" prefWidth="673.0">
+               <children>
+                  <Text layoutX="14.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informacioń del Producto." wrappingWidth="299.13671875">
+                     <font>
+                        <Font name="Cambria Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <GridPane layoutX="101.0" layoutY="66.0" prefHeight="117.0" prefWidth="548.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo de producto:" wrappingWidth="142.7138671875">
+                           <font>
+                              <Font name="Cambria Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <MenuButton mnemonicParsing="false" prefHeight="28.0" prefWidth="274.0" text="Producto" GridPane.columnIndex="1">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="tecnologia" />
+                              <MenuItem mnemonicParsing="false" text="Action 2" />
+                              <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                              <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                           </items>
+                           <font>
+                              <Font name="Cambria Bold" size="14.0" />
+                           </font>
+                        </MenuButton>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre del Anuciante:" wrappingWidth="174.84765625" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Cambria Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <TextField prefHeight="10.0" prefWidth="243.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Cambria Bold" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="238.0" prefWidth="766.0">
+               <children>
+                  <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informacioń del Anuncio." wrappingWidth="299.13671875">
+                     <font>
+                        <Font name="Cambria Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <GridPane layoutX="117.0" layoutY="55.0" prefHeight="169.0" prefWidth="486.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <TextField promptText="Nombre de su producto" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="Cambria Bold" size="14.0" />
+                           </font>
+                        </TextField>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre producto:">
+                           <font>
+                              <Font name="Cambria Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción:" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Cambria Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Foto:" wrappingWidth="36.84765625" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Cambria Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <TextField promptText="Descripcióń del producto" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Cambria Bold" size="14.0" />
+                           </font>
+                        </TextField>
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Cambria Bold" size="14.0" />
+                           </font>
+                        </TextField>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de publicación:" wrappingWidth="174.84765625" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Cambria Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de fin de la subasta:" wrappingWidth="174.84765625" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="Cambria Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Valor inial de la subasta:" wrappingWidth="174.84765625" GridPane.rowIndex="5">
+                           <font>
+                              <Font name="Cambria Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <DatePicker prefHeight="26.0" prefWidth="247.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <DatePicker prefHeight="26.0" prefWidth="247.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField prefHeight="40.0" prefWidth="241.0" promptText="Valor con la que inicia la subasta" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <font>
+                              <Font name="Cambria Bold" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
