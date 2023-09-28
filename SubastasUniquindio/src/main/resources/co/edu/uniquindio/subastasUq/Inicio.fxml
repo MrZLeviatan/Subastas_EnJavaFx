@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="475.0" prefWidth="738.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.subastasUq.viewController.InicioController">
+   <children>
+      <TableView layoutX="101.0" layoutY="238.0" prefHeight="200.0" prefWidth="537.0">
+        <columns>
+          <TableColumn fx:id="codIgoListaAnuncios" prefWidth="75.0" text="Codigo" />
+          <TableColumn fx:id="anuncianteListaAnuncios" prefWidth="87.0" text="Anunciante" />
+            <TableColumn fx:id="productoListaAnuncios" prefWidth="118.0" text="Producto" />
+            <TableColumn fx:id="descripcionListaAnuncios" prefWidth="129.0" text="Descripcion" />
+            <TableColumn fx:id="valorInicialListaAnuncios" prefWidth="127.0" text="Valor Inicial" />
+        </columns>
+      </TableView>
+      <Label layoutX="145.0" layoutY="114.0" text="Buscador:">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField layoutX="239.0" layoutY="112.0" prefHeight="25.0" prefWidth="260.0" />
+   </children>
+</AnchorPane>
