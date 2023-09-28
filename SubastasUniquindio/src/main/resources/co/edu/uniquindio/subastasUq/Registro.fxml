@@ -54,6 +54,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
                         <Text fx:id="textRegistro1" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:" wrappingWidth="105.0302734375">
@@ -76,32 +77,38 @@
                               <Font name="Cambria Bold" size="18.0" />
                            </font>
                         </Text>
-                        <Text fx:id="textRegistro14" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de Nacimiento:" wrappingWidth="198.0302734375" GridPane.rowIndex="4">
+                        <Text fx:id="textRegistro14" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de Nacimiento:" wrappingWidth="198.0302734375" GridPane.rowIndex="5">
                            <font>
                               <Font name="Cambria Bold" size="18.0" />
                            </font>
                         </Text>
-                        <DatePicker fx:id="fechaNacimientoDato" prefHeight="24.0" prefWidth="234.0" promptText="Ingrese su fecha de Nacimiento" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <TextField fx:id="nombreDato" prefHeight="22.0" prefWidth="251.0" promptText="Ingrese su Nombre" GridPane.columnIndex="1">
+                        <DatePicker fx:id="DpFechaNacimiento" prefHeight="26.0" prefWidth="258.0" promptText="Ingrese su fecha de Nacimiento" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <TextField fx:id="txtNombre" prefHeight="22.0" prefWidth="251.0" promptText="Ingrese su Nombre" GridPane.columnIndex="1">
                            <font>
                               <Font name="Cambria Bold" size="14.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="edadDato" promptText="Ingrese su Edad" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <TextField fx:id="txtEdad" promptText="Ingrese su Edad" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
                               <Font name="Cambria Bold" size="14.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="cedulaDato" promptText="Ingrese su Cedula" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <TextField fx:id="txtCedula" promptText="Ingrese su Cedula" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
                               <Font name="Cambria Bold" size="14.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="correoDato" promptText="Ingrese su Correo" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <TextField fx:id="TxtCorreo" promptText="Ingrese su Correo" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <font>
                               <Font name="Cambria Bold" size="14.0" />
                            </font>
                         </TextField>
+                        <Text fx:id="textRegistro121" strokeType="OUTSIDE" strokeWidth="0.0" text="Direccion:" wrappingWidth="105.0302734375" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="Cambria Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="txtDireccion" promptText="Ingrese su dirección" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                      </children>
                   </GridPane>
                </children>
@@ -139,26 +146,26 @@
                               <Font name="Cambria Bold" size="18.0" />
                            </font>
                         </Text>
-                        <TextField GridPane.columnIndex="1" />
-                        <TextField prefHeight="28.0" prefWidth="251.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtUsuario" GridPane.columnIndex="1" />
+                        <TextField fx:id="txtContraseña" prefHeight="28.0" prefWidth="251.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Text fx:id="textRegistro2" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo de usuario:" wrappingWidth="143.0302734375" GridPane.rowIndex="2">
                            <font>
                               <Font name="Cambria Bold" size="18.0" />
                            </font>
                         </Text>
-                        <CheckBox mnemonicParsing="false" text="Anunciante" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <CheckBox fx:id="chetBoxAnunciante" mnemonicParsing="false" text="Anunciante" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
                               <Font name="Cambria Bold" size="14.0" />
                            </font>
                         </CheckBox>
                      </children>
                   </GridPane>
-                  <Button layoutX="251.0" layoutY="207.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="141.0" style="-fx-background-color: #e58b5c;" text="Registrarse">
+                  <Button fx:id="btnRegistrar" layoutX="251.0" layoutY="207.0" mnemonicParsing="false" onAction="#Registar" prefHeight="31.0" prefWidth="141.0" style="-fx-background-color: #e58b5c;" text="Registrar">
                      <font>
                         <Font name="Cambria Bold" size="14.0" />
                      </font>
                   </Button>
-                  <CheckBox layoutX="453.0" layoutY="156.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="114.0" text="Comprador">
+                  <CheckBox fx:id="checkBoxComprador" layoutX="453.0" layoutY="156.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="114.0" text="Comprador">
                      <font>
                         <Font name="Cambria Bold" size="14.0" />
                      </font>
