@@ -73,6 +73,7 @@ public class AnuncioViewController {
 
     private void crear() {
         AnuncioDto anuncioDto=crearAnuncioDto();
+        anuncioServices.addAnuncio(anuncioDto);
     }
     private AnuncioDto crearAnuncioDto() {
         List<PujaDto>pujaDtos=new ArrayList<>();

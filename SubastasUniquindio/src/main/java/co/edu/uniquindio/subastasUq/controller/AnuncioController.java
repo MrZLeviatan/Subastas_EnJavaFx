@@ -1,5 +1,6 @@
 package co.edu.uniquindio.subastasUq.controller;
 
+import co.edu.uniquindio.subastasUq.mapping.dto.AnuncioDto;
 import co.edu.uniquindio.subastasUq.mapping.dto.ProductoDto;
 import co.edu.uniquindio.subastasUq.model.Anuncio;
 
@@ -15,5 +16,9 @@ public class AnuncioController {
 
     public List<ProductoDto> obtenerProductos() {
         return modelFactoryController.obtenerProductos();
+    }
+
+    public boolean addAnuncio(AnuncioDto anuncioDto) {
+        return modelFactoryController.addAnuncio(anuncioDto);
     }
 }

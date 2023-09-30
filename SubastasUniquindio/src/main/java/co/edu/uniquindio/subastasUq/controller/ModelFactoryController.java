@@ -14,47 +14,16 @@ import java.util.List;
 
 public class ModelFactoryController implements IModelFactoryController {
 
+    //variables "globales" de la clase
     private AnuncianteDto anuncianteDtoLogeado;
     private CompradorDto compradorDtoLogeado;
     SubastasUq subastaUq;
-
     SubastaMapper mapper = SubastaMapper.INSTANCE;
 
-    //metodo para reiniciarAlanunciante y al comprador Dto
-    public void cerrarSeccion(){
-        anuncianteDtoLogeado =null;
-        compradorDtoLogeado =null;
-    }
+    //final variables globales de la clase
 
 
-    //obtiene el comprador que este logeado
-    public CompradorDto getCompradorDtoLoegeado(){
-        return compradorDtoLogeado;
-    }
-
-    //obtiene el anunciante que este logeado
-    public AnuncianteDto getAnuncianteDtoLogeado(){
-        return anuncianteDtoLogeado;
-    }
-
-
-
-    //metodo que transforma la lista de anuncios filtrada en una de anuncios dto
-    public List<AnuncioDto> filtrarAnuncio(String codigo,String nombreAnunciate,String nombreProducto){
-        return mapper.getAnunciosDto(subastaUq.filtrarProductos(codigo,nombreAnunciate,nombreProducto)) ;
-    }
-
-
-    //metodo que obtiene toda la lista de anuncios de la subasta
-    public List<AnuncioDto> obtenerAnuncios() {
-        return mapper.getAnunciosDto(subastaUq.getListaAnuncios());
-    }
-
-    public List<ProductoDto> obtenerProductos() {
-        Anunciante anunciante=subastaUq.obtenerAnunciante(anuncianteDtoLogeado.cedula());
-        return mapper.getProductosDto(anunciante.getListaProductoAnunciante());
-    }
-
+    //metodos Singleton------------------------------------------------------------------------
     private static class SingletonHolder {
         private final static ModelFactoryController eINSTANCE = new ModelFactoryController();
     }
@@ -70,6 +39,69 @@ public class ModelFactoryController implements IModelFactoryController {
 
     public SubastasUq getSubastaUq() {
         return subastaUq;
+    }
+
+    //final metodosSingleton----------------------------------------------
+
+
+    //metodo cerrarSeccion-------------------------------------
+    public void cerrarSeccion(){
+        anuncianteDtoLogeado =null;
+        compradorDtoLogeado =null;
+    }
+
+    //final metodo cerrarSeccion------------------------------------
+
+    //metodos Anunciante------------------------------------------------------------------------------
+
+    public AnuncianteDto getAnuncianteDtoLogeado(){  //obtiene el anunciante que este logeado
+        return anuncianteDtoLogeado;
+    }
+
+
+    @Override
+    public boolean addAnunciante(AnuncianteDto anuncianteDto){
+        try {
+            if(!subastaUq.usuarioExiste(anuncianteDto.cedula())){
+                Anunciante anunciante= mapper.anuncianteDtoToAnunciante(anuncianteDto);
+                getSubastaUq().addUsuario(anunciante);
+            }
+            return true;
+        }catch (Exception e){
+            e.getMessage();
+            return false;
+        }
+    }
+
+    @Override
+    public boolean deleteAnunciante(String cedula) throws AnuncianteException {
+        Anunciante anunciante=null;
+        anunciante=subastaUq.obtenerAnunciante(cedula);
+        if(anunciante==null){
+            throw new AnuncianteException("el anunciante no existe");
+        }else {
+            subastaUq.deleteUsuario(anunciante);
+            return true;
+        }
+
+    }
+
+    @Override
+    public boolean autentificacionAnunciante(String correo, String contraseña) {
+        if(subastaUq.autentificarAnunciante(correo,contraseña)){
+            anuncianteDtoLogeado =mapper.anuncianteToAnuncianteDto(subastaUq.obtenerAnuncianteCorreo(correo));
+            return true;
+        }else {
+            return false;
+        }
+    }
+    //finalMetodosAnunciante--------------------------------------------------------------
+
+
+    //metodos Comprador--------------------------------------------------------------------
+
+    public CompradorDto getCompradorDtoLoegeado(){ //obtiene el comprador que este logeado
+        return compradorDtoLogeado;
     }
     @Override
     public boolean addComprador(CompradorDto compradorDto) { //añade el compradorDto
@@ -100,30 +132,22 @@ public class ModelFactoryController implements IModelFactoryController {
     }
 
     @Override
-    public boolean addAnunciante(AnuncianteDto anuncianteDto){
-        try {
-            if(!subastaUq.usuarioExiste(anuncianteDto.cedula())){
-                Anunciante anunciante= mapper.anuncianteDtoToAnunciante(anuncianteDto);
-                getSubastaUq().addUsuario(anunciante);
-            }
+    public boolean autentificacionComprador(String correo, String contraseña) {
+        if(subastaUq.autetificarComprador(correo,contraseña)){
+            compradorDtoLogeado =mapper.compradorToCompradorDto(subastaUq.obtenerCompradorCorreo(correo));
             return true;
-        }catch (Exception e){
-            e.getMessage();
+        }else {
             return false;
         }
     }
 
-    @Override
-    public boolean deleteAnunciante(String cedula) throws AnuncianteException {
-        Anunciante anunciante=null;
-        anunciante=subastaUq.obtenerAnunciante(cedula);
-        if(anunciante==null){
-            throw new AnuncianteException("el anunciante no existe");
-        }else {
-            subastaUq.deleteUsuario(anunciante);
-            return true;
-        }
 
+    //final metodos Comprador----------------------------------------------------------------
+
+    //metodos productos-------------------------------------------------------------------
+    public List<ProductoDto> obtenerProductos() {
+        Anunciante anunciante=subastaUq.obtenerAnunciante(anuncianteDtoLogeado.cedula());
+        return mapper.getProductosDto(anunciante.getListaProductoAnunciante());
     }
 
     @Override
@@ -131,6 +155,46 @@ public class ModelFactoryController implements IModelFactoryController {
         Producto producto= mapper.productoDtoToProducto(productoDto);
         subastaUq.addProductoAnunciante(producto,anuncianteDtoLogeado.cedula());
     }
+    //final metodo productos----------------------------------------------------
+
+    //metodos anuncio--------------------------------------------------------------------------
+
+    //metodo que transforma la lista de anuncios filtrada en una de anuncios dto
+    public List<AnuncioDto> filtrarAnuncio(String codigo,String nombreAnunciate,String nombreProducto){
+        return mapper.getAnunciosDto(subastaUq.filtrarProductos(codigo,nombreAnunciate,nombreProducto)) ;
+    }
+
+
+    //metodo que obtiene toda la lista de anuncios de la subasta
+    public List<AnuncioDto> obtenerAnuncios() {
+        return mapper.getAnunciosDto(subastaUq.getListaAnuncios());
+    }
+
+    //final metodos anuncio---------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -144,26 +208,6 @@ public class ModelFactoryController implements IModelFactoryController {
             return true;
         }catch (Exception e){
             e.getMessage();
-            return false;
-        }
-    }
-
-    @Override
-    public boolean autentificacionAnunciante(String correo, String contraseña) {
-        if(subastaUq.autentificarAnunciante(correo,contraseña)){
-            anuncianteDtoLogeado =mapper.anuncianteToAnuncianteDto(subastaUq.obtenerAnuncianteCorreo(correo));
-            return true;
-        }else {
-            return false;
-        }
-    }
-
-    @Override
-    public boolean autentificacionComprador(String correo, String contraseña) {
-        if(subastaUq.autetificarComprador(correo,contraseña)){
-            compradorDtoLogeado =mapper.compradorToCompradorDto(subastaUq.obtenerCompradorCorreo(correo));
-            return true;
-        }else {
             return false;
         }
     }
