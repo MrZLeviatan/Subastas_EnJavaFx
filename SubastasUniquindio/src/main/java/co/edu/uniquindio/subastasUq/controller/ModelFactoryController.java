@@ -97,7 +97,6 @@ public class ModelFactoryController implements IModelFactoryController {
 
 
 
-    @Override
     public boolean addAnuncio(AnuncioDto anuncioDto, String cedula){
         Anunciante anunciante=subastaUq.obtenerAnunciante(cedula);
         try {

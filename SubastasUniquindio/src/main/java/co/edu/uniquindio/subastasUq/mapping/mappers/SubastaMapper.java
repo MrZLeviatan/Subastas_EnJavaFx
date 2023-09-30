@@ -37,4 +37,5 @@ public interface SubastaMapper {
     @Named("anuncioToAnuncioDto")
     AnuncioDto anuncioToAnuncioDto(Anuncio anuncio);
     Anuncio anuncioDtoToAnuncio(AnuncioDto anuncioDto);
+
 }
