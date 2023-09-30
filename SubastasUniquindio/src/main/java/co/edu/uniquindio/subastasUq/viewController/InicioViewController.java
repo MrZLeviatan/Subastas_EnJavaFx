@@ -79,7 +79,11 @@ public class InicioViewController {
 
     @FXML
     void filtrar(ActionEvent event) {
+        filtrarAnuncios();
+    }
 
+    private void filtrarAnuncios(){
+        listaAnunciosDto.addAll(inicioServices.filtrarAnuncios(txtCodigo.getText(),txtAnunciante.getText(),txtCodigo.getText()));
     }
 
 }

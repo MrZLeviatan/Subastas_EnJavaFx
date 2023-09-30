@@ -16,4 +16,9 @@ public class InicioController implements IInicioController {
     public List<AnuncioDto> obtenerAnuncios() {
         return modelFactoryController.obtenerAnuncios();
     }
+
+    @Override
+    public List<AnuncioDto> filtrarAnuncios(String codigo,String nombreAnunciate,String nombreProducto) {
+        return modelFactoryController.filtrarAnuncio(codigo,nombreAnunciate,nombreProducto);
+    }
 }

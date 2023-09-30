@@ -9,7 +9,7 @@ public class Anuncio {
     private Producto producto;
     private LocalDate fechaInicio;
     private LocalDate fechaFinal;
-
+    private Byte foto;
     private String nombreAnunciante;
 
     private double precioInicial;
@@ -82,5 +82,13 @@ public class Anuncio {
 
     public void setPrecioInicial(double precioInicial) {
         this.precioInicial = precioInicial;
+    }
+
+    public Byte getFoto() {
+        return foto;
+    }
+
+    public void setFoto(Byte foto) {
+        this.foto = foto;
     }
 }

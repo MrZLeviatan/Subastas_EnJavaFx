@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface IInicioController {
     List<AnuncioDto> obtenerAnuncios();
+
+    List<AnuncioDto> filtrarAnuncios(String codigo,String nombreAnunciate,String nombreProducto);
 }

@@ -15,14 +15,13 @@ public interface IModelFactoryController {
     boolean deleteAnunciante(String cedula) throws AnuncianteException;
 
     boolean addAnunciante(AnuncianteDto anuncianteDto);
+    void addProducto(ProductoDto productoDto);
 
-    void addProducto(ProductoDto productoDto, String cc);
-
-    boolean addAnuncio(AnuncioDto anuncioDto, String cedula);
-
+    boolean addAnuncio(AnuncioDto anuncioDto);
 
     boolean autentificacionAnunciante(String correo, String contraseña);
-    boolean autentificacionComprador(String correo,String contraseña);
+
+    boolean autentificacionComprador(String correo, String contraseña);
 
 }
 

@@ -8,6 +8,8 @@ import java.util.List;
 public record AnuncioDto(
         String codigoAnuncio,
         Producto producto,
+
+        Byte foto,
         LocalDate fechaInicio,
 
         LocalDate fechaFinal,

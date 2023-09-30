@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.subastasUq.viewController.AnuncioViewController">
+<AnchorPane prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.subastasUq.viewController.AnuncioViewController">
    <children>
       <SplitPane dividerPositions="0.3953033268101761" layoutX="1.0" layoutY="4.0" orientation="VERTICAL" prefHeight="513.0" prefWidth="746.0">
          <items>
@@ -39,7 +39,7 @@
                               <Font name="Cambria Bold" size="14.0" />
                            </font>
                         </Text>
-                        <MenuButton mnemonicParsing="false" prefHeight="28.0" prefWidth="274.0" text="Producto" GridPane.columnIndex="1">
+                        <MenuButton fx:id="comboxProductos" mnemonicParsing="false" prefHeight="28.0" prefWidth="274.0" text="Producto" GridPane.columnIndex="1">
                            <items>
                               <MenuItem mnemonicParsing="false" text="tecnologia" />
                               <MenuItem mnemonicParsing="false" text="Action 2" />
@@ -55,7 +55,7 @@
                               <Font name="Cambria Bold" size="14.0" />
                            </font>
                         </Text>
-                        <TextField prefHeight="10.0" prefWidth="243.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <TextField fx:id="txtNombreAnunciante" prefHeight="10.0" prefWidth="243.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
                               <Font name="Cambria Bold" size="14.0" />
                            </font>
@@ -85,7 +85,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <TextField promptText="Nombre de su producto" GridPane.columnIndex="1">
+                        <TextField fx:id="txtNombreProducto" promptText="Nombre de su producto" GridPane.columnIndex="1">
                            <font>
                               <Font name="Cambria Bold" size="14.0" />
                            </font>
@@ -105,7 +105,7 @@
                               <Font name="Cambria Bold" size="14.0" />
                            </font>
                         </Text>
-                        <TextField promptText="Descripcióń del producto" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <TextField fx:id="txtDescripcion" promptText="Descripcióń del producto" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
                               <Font name="Cambria Bold" size="14.0" />
                            </font>
@@ -125,20 +125,21 @@
                               <Font name="Cambria Bold" size="14.0" />
                            </font>
                         </Text>
-                        <DatePicker prefHeight="26.0" prefWidth="247.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <DatePicker prefHeight="26.0" prefWidth="247.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <TextField prefHeight="40.0" prefWidth="241.0" promptText="Valor con la que inicia la subasta" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                        <DatePicker fx:id="dPFechaPublicacion" prefHeight="26.0" prefWidth="247.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <DatePicker fx:id="dPFechaFinal" prefHeight="26.0" prefWidth="247.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField fx:id="valorInicial" prefHeight="40.0" prefWidth="241.0" promptText="Valor con la que inicia la subasta" GridPane.columnIndex="1" GridPane.rowIndex="5">
                            <font>
                               <Font name="Cambria Bold" size="14.0" />
                            </font>
                         </TextField>
-                        <Button fx:id="botonImagen" mnemonicParsing="false" onAction="#actionoEvento" prefHeight="25.0" prefWidth="142.0" text="Agrege la Foto" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Button fx:id="btnImagen" mnemonicParsing="false" onAction="#agregarFoto" prefHeight="25.0" prefWidth="142.0" text="Agrege la Foto" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
                               <Font name="Cambria Bold" size="14.0" />
                            </font>
                         </Button>
                      </children>
                   </GridPane>
+                  <Button fx:id="btnCrearAnuncio" layoutX="314.0" layoutY="256.0" mnemonicParsing="false" onAction="#CrearAnuncio" text="Crear Anuncio" />
                </children>
             </AnchorPane>
          </items>

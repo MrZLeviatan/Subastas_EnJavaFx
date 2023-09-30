@@ -14,14 +14,45 @@ import java.util.List;
 
 public class ModelFactoryController implements IModelFactoryController {
 
-    AnuncianteDto anuncianteDto;
-    CompradorDto compradorDto;
+    private AnuncianteDto anuncianteDtoLogeado;
+    private CompradorDto compradorDtoLogeado;
     SubastasUq subastaUq;
 
     SubastaMapper mapper = SubastaMapper.INSTANCE;
 
+    //metodo para reiniciarAlanunciante y al comprador Dto
+    public void cerrarSeccion(){
+        anuncianteDtoLogeado =null;
+        compradorDtoLogeado =null;
+    }
+
+
+    //obtiene el comprador que este logeado
+    public CompradorDto getCompradorDtoLoegeado(){
+        return compradorDtoLogeado;
+    }
+
+    //obtiene el anunciante que este logeado
+    public AnuncianteDto getAnuncianteDtoLogeado(){
+        return anuncianteDtoLogeado;
+    }
+
+
+
+    //metodo que transforma la lista de anuncios filtrada en una de anuncios dto
+    public List<AnuncioDto> filtrarAnuncio(String codigo,String nombreAnunciate,String nombreProducto){
+        return mapper.getAnunciosDto(subastaUq.filtrarProductos(codigo,nombreAnunciate,nombreProducto)) ;
+    }
+
+
+    //metodo que obtiene toda la lista de anuncios de la subasta
     public List<AnuncioDto> obtenerAnuncios() {
         return mapper.getAnunciosDto(subastaUq.getListaAnuncios());
+    }
+
+    public List<ProductoDto> obtenerProductos() {
+        Anunciante anunciante=subastaUq.obtenerAnunciante(anuncianteDtoLogeado.cedula());
+        return mapper.getProductosDto(anunciante.getListaProductoAnunciante());
     }
 
     private static class SingletonHolder {
@@ -96,19 +127,19 @@ public class ModelFactoryController implements IModelFactoryController {
     }
 
     @Override
-    public void addProducto(ProductoDto productoDto, String cedula){ //no se que condicionales ponerle a eso
+    public void addProducto(ProductoDto productoDto){ //no se que condicionales ponerle a eso
         Producto producto= mapper.productoDtoToProducto(productoDto);
-        subastaUq.addProductoAnunciante(producto,cedula);
+        subastaUq.addProductoAnunciante(producto,anuncianteDtoLogeado.cedula());
     }
 
 
 
-    public boolean addAnuncio(AnuncioDto anuncioDto, String cedula){
-        Anunciante anunciante=subastaUq.obtenerAnunciante(cedula);
+    public boolean addAnuncio(AnuncioDto anuncioDto){
+        Anunciante anunciante=subastaUq.obtenerAnunciante(anuncianteDtoLogeado.cedula());
         try {
             if(anunciante.getListaAnunciosAnunciante().size()<3){
                 Anuncio anuncio=mapper.anuncioDtoToAnuncio(anuncioDto);
-                subastaUq.addAnuncio(anuncio,cedula);
+                subastaUq.addAnuncio(anuncio,anuncianteDtoLogeado.cedula());
             }
             return true;
         }catch (Exception e){
@@ -119,12 +150,22 @@ public class ModelFactoryController implements IModelFactoryController {
 
     @Override
     public boolean autentificacionAnunciante(String correo, String contraseña) {
-        return subastaUq.autentificarAnunciante(correo,contraseña);
+        if(subastaUq.autentificarAnunciante(correo,contraseña)){
+            anuncianteDtoLogeado =mapper.anuncianteToAnuncianteDto(subastaUq.obtenerAnuncianteCorreo(correo));
+            return true;
+        }else {
+            return false;
+        }
     }
 
     @Override
     public boolean autentificacionComprador(String correo, String contraseña) {
-        return subastaUq.autetificarComprador(correo,contraseña);
+        if(subastaUq.autetificarComprador(correo,contraseña)){
+            compradorDtoLogeado =mapper.compradorToCompradorDto(subastaUq.obtenerCompradorCorreo(correo));
+            return true;
+        }else {
+            return false;
+        }
     }
 
 }

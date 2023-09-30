@@ -1,8 +1,11 @@
 package co.edu.uniquindio.subastasUq.model;
 
 import co.edu.uniquindio.subastasUq.exceptions.AnuncianteException;
+import co.edu.uniquindio.subastasUq.utils.AnuncioUtils;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class SubastasUq  {
 
@@ -171,5 +174,21 @@ public class SubastasUq  {
             }
         }
         return correcto;
+    }
+    //metodo para filtrar la lista
+    public List<Anuncio> filtrarProductos(String codigo,String nombreAnunciante, String nombreProducto){
+        return listaAnuncios.stream().filter(AnuncioUtils.buscarPorTodo(codigo,nombreAnunciante,nombreProducto)).collect(Collectors.toList());
+    }
+
+
+    //metodo para obtener el anunciante utilizando el correo
+    public Anunciante obtenerAnuncianteCorreo(String correo) {
+        return listaAnunciantes.stream().filter(anunciante -> anunciante.getUsuario().getCorreo().equals(correo)).findFirst().get();
+    }
+
+    //metodoPara obtener el comprador utilizando el correo
+
+    public Comprador obtenerCompradorCorreo(String correo) {
+        return listaComprador.stream().filter(comprador -> comprador.getUsuario().getCorreo().equals(correo)).findFirst().get();
     }
 }
