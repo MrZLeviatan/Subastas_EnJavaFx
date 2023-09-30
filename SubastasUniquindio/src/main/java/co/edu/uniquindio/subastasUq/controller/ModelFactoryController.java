@@ -10,6 +10,8 @@ import co.edu.uniquindio.subastasUq.mapping.dto.ProductoDto;
 import co.edu.uniquindio.subastasUq.mapping.mappers.SubastaMapper;
 import co.edu.uniquindio.subastasUq.model.*;
 
+import java.util.List;
+
 public class ModelFactoryController implements IModelFactoryController {
 
     AnuncianteDto anuncianteDto;
@@ -17,6 +19,10 @@ public class ModelFactoryController implements IModelFactoryController {
     SubastasUq subastaUq;
 
     SubastaMapper mapper = SubastaMapper.INSTANCE;
+
+    public List<AnuncioDto> obtenerAnuncios() {
+        return mapper.getAnunciosDto(subastaUq.getListaAnuncios());
+    }
 
     private static class SingletonHolder {
         private final static ModelFactoryController eINSTANCE = new ModelFactoryController();

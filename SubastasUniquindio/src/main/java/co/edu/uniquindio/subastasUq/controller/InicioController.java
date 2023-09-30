@@ -1,15 +1,19 @@
 package co.edu.uniquindio.subastasUq.controller;
 
+import co.edu.uniquindio.subastasUq.controller.service.IInicioController;
 import co.edu.uniquindio.subastasUq.mapping.dto.AnuncioDto;
 
-public class InicioController {
+import java.util.List;
+
+public class InicioController implements IInicioController {
     ModelFactoryController modelFactoryController;
 
     public InicioController(){
         modelFactoryController=ModelFactoryController.getInstance();
     }
 
-    public AnuncioDto obtenerProductos() {
-
+    @Override
+    public List<AnuncioDto> obtenerAnuncios() {
+        return modelFactoryController.obtenerAnuncios();
     }
 }

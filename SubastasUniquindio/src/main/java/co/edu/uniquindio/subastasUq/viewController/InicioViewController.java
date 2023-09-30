@@ -53,15 +53,19 @@ public class InicioViewController {
     private void initialize(){
         inicioServices=new InicioController();
         initView();
+        obtenerAnuncios();
+        tableAnuncios.getItems().clear();
+        tableAnuncios.setItems(listaAnunciosDto);
+
     }
 
     private void initView() {
         initDataBinding();
-        obtenerProductos();
+        obtenerAnuncios();
     }
 
-    private void obtenerProductos() {
-        listaAnunciosDto.addAll(inicioServices.obtenerProductos());
+    private void obtenerAnuncios() {
+        listaAnunciosDto.addAll(inicioServices.obtenerAnuncios());
     }
 
     //propiedad para las tablas

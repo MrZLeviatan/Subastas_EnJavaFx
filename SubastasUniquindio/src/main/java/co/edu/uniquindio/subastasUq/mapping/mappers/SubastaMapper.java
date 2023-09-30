@@ -8,9 +8,12 @@ import co.edu.uniquindio.subastasUq.model.Anunciante;
 import co.edu.uniquindio.subastasUq.model.Anuncio;
 import co.edu.uniquindio.subastasUq.model.Comprador;
 import co.edu.uniquindio.subastasUq.model.Producto;
+import org.mapstruct.IterableMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Named;
 import org.mapstruct.factory.Mappers;
+
+import java.util.List;
 
 
 @Mapper
@@ -37,5 +40,9 @@ public interface SubastaMapper {
     @Named("anuncioToAnuncioDto")
     AnuncioDto anuncioToAnuncioDto(Anuncio anuncio);
     Anuncio anuncioDtoToAnuncio(AnuncioDto anuncioDto);
+
+
+    @IterableMapping(qualifiedByName = "anuncioToAnuncioDto")
+    List<AnuncioDto> getAnunciosDto(List<Anuncio> listaAnuncios);
 
 }
