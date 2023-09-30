@@ -1,4 +1,4 @@
 package co.edu.uniquindio.subastasUq.viewController;
 
-public class RegistroComprador {
+public class SubastaViewController {
 }

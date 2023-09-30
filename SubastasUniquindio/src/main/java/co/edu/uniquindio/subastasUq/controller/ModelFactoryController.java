@@ -34,7 +34,8 @@ public class ModelFactoryController implements IModelFactoryController {
     @Override
     public boolean addComprador(CompradorDto compradorDto) { //añade el compradorDto
         try {
-            if (!subastaUq.usuarioExiste(compradorDto.cedula())) {
+            System.out.println("entra al modelFactory");
+            if (!subastaUq.usuarioExiste(compradorDto.cedula())&&!subastaUq.correoExistente(compradorDto.usuarioDto().correo())) {
                 Comprador comprador = mapper.compradorDtoToComprador(compradorDto);
                 getSubastaUq().addUsuario(comprador);
             }
