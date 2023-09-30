@@ -14,10 +14,10 @@
          <items>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TableView fx:id="tablaAnuncios" layoutX="20.0" layoutY="98.0" prefHeight="414.0" prefWidth="302.0">
+                  <TableView fx:id="tableAnuncios" layoutX="20.0" layoutY="98.0" prefHeight="375.0" prefWidth="302.0">
                      <columns>
-                        <TableColumn fx:id="nombreListaAnuncios" prefWidth="98.0" text="Nombre" />
-                        <TableColumn fx:id="codigoListaAnuncios" prefWidth="97.0" text="Código" />
+                        <TableColumn fx:id="tcNobre" prefWidth="148.79998016357422" text="Nombre" />
+                        <TableColumn fx:id="tcCodigo" prefWidth="153.60003662109375" text="Código" />
                      </columns>
                   </TableView>
                   <Text fx:id="text" layoutX="23.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista de anuncios." wrappingWidth="136.9830722808838">
@@ -29,20 +29,20 @@
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TableView layoutX="26.0" layoutY="54.0" prefHeight="413.0" prefWidth="351.0">
+                  <TableView fx:id="tablePujas" layoutX="26.0" layoutY="54.0" prefHeight="413.0" prefWidth="351.0">
                      <columns>
-                        <TableColumn fx:id="compradorListaPujas" prefWidth="75.0" text="Comprador" />
-                        <TableColumn fx:id="CodigoListaPujas" prefWidth="100.0" text="Codigo de puja" />
-                        <TableColumn fx:id="fechaListaPujas" prefWidth="74.0" text="Fecha" />
-                        <TableColumn fx:id="ofertaInicalListaPujas" text="Oferta Inical" />
+                        <TableColumn fx:id="tcComprador" prefWidth="75.0" text="Comprador" />
+                        <TableColumn fx:id="tcCodigoPuja" prefWidth="100.0" text="Codigo de puja" />
+                        <TableColumn fx:id="tcFecha" prefWidth="91.99993896484375" text="Fecha" />
+                        <TableColumn fx:id="tcFechaInicial" prefWidth="84.00006103515625" text="Oferta Inical" />
                      </columns>
                   </TableView>
-                  <Button fx:id="elegirPujaGanadora" layoutX="156.0" layoutY="481.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="127.0" style="-fx-background-color: #e58b5c;" text="Elegir puja" textFill="WHITE">
+                  <Button fx:id="btnElegirPuja" layoutX="156.0" layoutY="481.0" mnemonicParsing="false" onAction="#elegirPuja" prefHeight="37.0" prefWidth="127.0" style="-fx-background-color: #e58b5c;" text="Elegir puja" textFill="WHITE">
                      <font>
                         <Font name="Cambria Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Text fx:id="text1" layoutX="43.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista de pujas realizadas." wrappingWidth="167.9830722808838">
+                  <Text fx:id="text1" layoutX="14.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista de pujas realizadas." wrappingWidth="167.9830722808838">
                      <font>
                         <Font name="Cambria Bold" size="14.0" />
                      </font>

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -39,17 +38,6 @@
                               <Font name="Cambria Bold" size="14.0" />
                            </font>
                         </Text>
-                        <MenuButton fx:id="comboxProductos" mnemonicParsing="false" prefHeight="28.0" prefWidth="274.0" text="Producto" GridPane.columnIndex="1">
-                           <items>
-                              <MenuItem mnemonicParsing="false" text="tecnologia" />
-                              <MenuItem mnemonicParsing="false" text="Action 2" />
-                              <MenuItem mnemonicParsing="false" text="Unspecified Action" />
-                              <MenuItem mnemonicParsing="false" text="Unspecified Action" />
-                           </items>
-                           <font>
-                              <Font name="Cambria Bold" size="14.0" />
-                           </font>
-                        </MenuButton>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre del Anuciante:" wrappingWidth="174.84765625" GridPane.rowIndex="1">
                            <font>
                               <Font name="Cambria Bold" size="14.0" />
@@ -60,6 +48,7 @@
                               <Font name="Cambria Bold" size="14.0" />
                            </font>
                         </TextField>
+                        <ComboBox fx:id="comboxProductos" prefHeight="26.0" prefWidth="286.0" promptText="Productos" GridPane.columnIndex="1" />
                      </children>
                   </GridPane>
                </children>

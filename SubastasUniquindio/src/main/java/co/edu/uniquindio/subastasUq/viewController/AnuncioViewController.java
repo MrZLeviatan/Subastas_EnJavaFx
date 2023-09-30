@@ -92,7 +92,7 @@ public class AnuncioViewController {
     //final metodos crear
 
 
-    //eventos
+    //eventos-----------------------------------------------------------------------------------------------
     @FXML
     void CrearAnuncio(ActionEvent event) {
         crear();
@@ -127,6 +127,6 @@ public class AnuncioViewController {
         }
     }
 
-    //final eventos
+    //final eventos-----------------------------------------------------------------------
 
 }
