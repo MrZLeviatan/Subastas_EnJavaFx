@@ -1,5 +1,7 @@
 package co.edu.uniquindio.subastasUq.model;
 
+import javafx.scene.image.Image;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -9,7 +11,7 @@ public class Anuncio {
     private Producto producto;
     private LocalDate fechaInicio;
     private LocalDate fechaFinal;
-    private Byte foto;
+    private Image foto;
     private String nombreAnunciante;
 
     private double precioInicial;
@@ -84,11 +86,11 @@ public class Anuncio {
         this.precioInicial = precioInicial;
     }
 
-    public Byte getFoto() {
+    public Image getFoto() {
         return foto;
     }
 
-    public void setFoto(Byte foto) {
+    public void setFoto(Image foto) {
         this.foto = foto;
     }
 }

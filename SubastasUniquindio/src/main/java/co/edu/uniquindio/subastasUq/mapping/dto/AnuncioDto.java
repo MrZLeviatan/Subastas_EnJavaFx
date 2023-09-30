@@ -9,7 +9,7 @@ public record AnuncioDto(
         String codigoAnuncio,
         Producto producto,
 
-        Byte foto,
+        javafx.scene.image.Image foto,
         LocalDate fechaInicio,
 
         LocalDate fechaFinal,

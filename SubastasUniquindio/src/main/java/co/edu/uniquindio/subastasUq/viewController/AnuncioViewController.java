@@ -19,50 +19,44 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AnuncioViewController {
-
-
+    //-----variables globales
     AnuncioController anuncioServices;
     ObservableList<ProductoDto>productoDtos;
+    ImageView imageView = new ImageView();
+    //--------
+
+
+    // elementos Fxml
     @FXML
     private Button btnImagen;
-
     @FXML
     private ComboBox<ProductoDto> comboxProductos;
-
     @FXML
     private DatePicker dPFechaFinal;
-
     @FXML
     private DatePicker dPFechaPublicacion;
-
     @FXML
     private TextField txtDescripcion;
-
     @FXML
     private TextField txtNombreAnunciante;
-
     @FXML
     private TextField txtNombreProducto;
-
     @FXML
     private TextField valorInicial;
     @FXML
     private Button btnCrearAnuncio;
 
     @FXML
+    private Button botonImagen;
+    //final elementos Fxml
+
+
+    //inicializar metodos
+    @FXML
     private void initialize(){
         anuncioServices=new AnuncioController();
         iniciarCombox();
     }
-
-
-    @FXML
-    void CrearAnuncio(ActionEvent event) {
-        crear();
-    }
-
-
-
     private void iniciarCombox(){
         obtenerProductos();
         comboxProductos.setItems(productoDtos);
@@ -70,31 +64,38 @@ public class AnuncioViewController {
     private void obtenerProductos(){
         productoDtos.addAll(anuncioServices.obtenerProductos());
     }
+    //final inicializar
+
+
+
+
+    //metodos para crear
 
     private void crear() {
         AnuncioDto anuncioDto=crearAnuncioDto();
     }
-
     private AnuncioDto crearAnuncioDto() {
         List<PujaDto>pujaDtos=new ArrayList<>();
         return new AnuncioDto(
                 "codigo",
                 null,
-                null,
+                imageView.getImage(), //cambiar bite por imagen???
                 dPFechaPublicacion.getValue(),
                 dPFechaFinal.getValue(),
                 "nombre anunciante",
                 Double.parseDouble(valorInicial.getText()),
                 pujaDtos
-                );
+        );
     }
 
+    //final metodos crear
 
+
+    //eventos
     @FXML
-    private Button botonImagen;
-    ImageView imageView = new ImageView();
-
-
+    void CrearAnuncio(ActionEvent event) {
+        crear();
+    }
 
     @FXML
     public void agregarFoto(ActionEvent event) {
@@ -125,8 +126,6 @@ public class AnuncioViewController {
         }
     }
 
-
-
-
+    //final eventos
 
 }
