@@ -79,6 +79,7 @@ public class RegistroCompradorViewController {
         txtUsuario.setText("");
         txtContraseña.setText("");
         txtDireccion.setText("");
+        txtCorreo.setText("");
     }
 
     //metodo para crear un compradorDto

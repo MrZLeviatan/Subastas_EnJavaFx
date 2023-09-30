@@ -21,5 +21,8 @@ public interface IModelFactoryController {
     boolean addAnuncio(AnuncioDto anuncioDto, String cedula);
 
 
+    boolean autentificacionAnunciante(String correo, String contraseña);
+    boolean autentificacionComprador(String correo,String contraseña);
+
 }
 

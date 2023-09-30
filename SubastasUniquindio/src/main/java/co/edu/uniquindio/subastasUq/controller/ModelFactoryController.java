@@ -11,6 +11,9 @@ import co.edu.uniquindio.subastasUq.mapping.mappers.SubastaMapper;
 import co.edu.uniquindio.subastasUq.model.*;
 
 public class ModelFactoryController implements IModelFactoryController {
+
+    AnuncianteDto anuncianteDto;
+    CompradorDto compradorDto;
     SubastasUq subastaUq;
 
     SubastaMapper mapper = SubastaMapper.INSTANCE;
@@ -108,4 +111,15 @@ public class ModelFactoryController implements IModelFactoryController {
             return false;
         }
     }
+
+    @Override
+    public boolean autentificacionAnunciante(String correo, String contraseña) {
+        return subastaUq.autentificarAnunciante(correo,contraseña);
+    }
+
+    @Override
+    public boolean autentificacionComprador(String correo, String contraseña) {
+        return subastaUq.autetificarComprador(correo,contraseña);
+    }
+
 }

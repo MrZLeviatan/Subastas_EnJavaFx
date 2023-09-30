@@ -150,4 +150,26 @@ public class SubastasUq  {
         Anunciante anunciante= obtenerAnunciante(cedula);
         anunciante.addProducto(producto);
     }
+
+    public boolean autetificarComprador(String correo, String contraseña) {
+        boolean correcto=false;
+        for (Comprador comprador:listaComprador){
+            if(comprador.getUsuario().getCorreo().equals(correo)&&comprador.getUsuario().getConstrasenia().equals(contraseña)){
+                correcto= true;
+                break;
+            }
+        }
+        return correcto;
+    }
+
+    public boolean autentificarAnunciante(String correo, String contraseña){
+        boolean correcto=false;
+        for (Anunciante anunciante:listaAnunciantes){
+            if(anunciante.getUsuario().getCorreo().equals(correo)&&anunciante.getUsuario().getConstrasenia().equals(contraseña)){
+                correcto=true;
+                break;
+            }
+        }
+        return correcto;
+    }
 }

@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.subastasUq.viewController.RegistroViewController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.subastasUq.viewController.RegistroAnuncianteViewController">
    <children>
       <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="557.0" prefWidth="710.0">
          <items>
@@ -52,6 +52,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
                         <Text fx:id="textRegistro1" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:" wrappingWidth="105.0302734375">
@@ -59,51 +60,57 @@
                               <Font name="Cambria Bold" size="18.0" />
                            </font>
                         </Text>
-                        <Text fx:id="textRegistro11" strokeType="OUTSIDE" strokeWidth="0.0" text="Edad:" wrappingWidth="105.0302734375" GridPane.rowIndex="1">
+                        <Text fx:id="textRegistro11" strokeType="OUTSIDE" strokeWidth="0.0" text="Edad:" wrappingWidth="105.0302734375" GridPane.rowIndex="2">
                            <font>
                               <Font name="Cambria Bold" size="18.0" />
                            </font>
                         </Text>
-                        <Text fx:id="textRegistro12" strokeType="OUTSIDE" strokeWidth="0.0" text="Correo:" wrappingWidth="105.0302734375" GridPane.rowIndex="3">
+                        <Text fx:id="textRegistro12" strokeType="OUTSIDE" strokeWidth="0.0" text="Correo:" wrappingWidth="105.0302734375" GridPane.rowIndex="4">
                            <font>
                               <Font name="Cambria Bold" size="18.0" />
                            </font>
                         </Text>
-                        <Text fx:id="textRegistro13" strokeType="OUTSIDE" strokeWidth="0.0" text="Cedula:" wrappingWidth="105.0302734375" GridPane.rowIndex="2">
+                        <Text fx:id="textRegistro13" strokeType="OUTSIDE" strokeWidth="0.0" text="Cedula:" wrappingWidth="105.0302734375" GridPane.rowIndex="3">
                            <font>
                               <Font name="Cambria Bold" size="18.0" />
                            </font>
                         </Text>
-                        <Text fx:id="textRegistro14" strokeType="OUTSIDE" strokeWidth="0.0" text="Edad:" wrappingWidth="198.0302734375" GridPane.rowIndex="4">
+                        <Text fx:id="textRegistro14" strokeType="OUTSIDE" strokeWidth="0.0" text="Edad:" wrappingWidth="198.0302734375" GridPane.rowIndex="5">
                            <font>
                               <Font name="Cambria Bold" size="18.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="nombreDato" prefHeight="22.0" prefWidth="251.0" promptText="Ingrese su Nombre" GridPane.columnIndex="1">
+                        <TextField fx:id="txtNombre" prefHeight="22.0" prefWidth="251.0" promptText="Ingrese su Nombre" GridPane.columnIndex="1">
                            <font>
                               <Font name="Cambria Bold" size="14.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="edadDato" promptText="Ingrese su Edad" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <TextField fx:id="txtEdad" promptText="Ingrese su Edad" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
                               <Font name="Cambria Bold" size="14.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="cedulaDato" promptText="Ingrese su Cedula" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <TextField fx:id="txtCedula" promptText="Ingrese su Cedula" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <font>
                               <Font name="Cambria Bold" size="14.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="correoDato" promptText="Ingrese su Correo" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <TextField fx:id="txtCorreo" promptText="Ingrese su Correo" GridPane.columnIndex="1" GridPane.rowIndex="4">
                            <font>
                               <Font name="Cambria Bold" size="14.0" />
                            </font>
                         </TextField>
-                        <TextField prefHeight="24.0" prefWidth="389.0" promptText="Ingrese su Edad:" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <TextField fx:id="txtEdad" prefHeight="24.0" prefWidth="389.0" promptText="Ingrese su Edad:" GridPane.columnIndex="1" GridPane.rowIndex="5">
                            <font>
                               <Font name="Cambria Bold" size="14.0" />
                            </font>
                         </TextField>
+                        <Text fx:id="textRegistro15" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellido:" wrappingWidth="105.0302734375" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Cambria Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="txtApellido" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                </children>
@@ -140,11 +147,11 @@
                               <Font name="Cambria Bold" size="18.0" />
                            </font>
                         </Text>
-                        <TextField GridPane.columnIndex="1" />
-                        <TextField prefHeight="28.0" prefWidth="251.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtUsuario" GridPane.columnIndex="1" />
+                        <TextField fx:id="txtContraseña" prefHeight="28.0" prefWidth="251.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
-                  <Button layoutX="299.0" layoutY="218.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="141.0" style="-fx-background-color: #e58b5c;" text="Registrarse">
+                  <Button fx:id="btnRegistrar" layoutX="299.0" layoutY="218.0" mnemonicParsing="false" onAction="#registrarAnunciante" prefHeight="31.0" prefWidth="141.0" style="-fx-background-color: #e58b5c;" text="Registrarse">
                      <font>
                         <Font name="Cambria Bold" size="14.0" />
                      </font>
