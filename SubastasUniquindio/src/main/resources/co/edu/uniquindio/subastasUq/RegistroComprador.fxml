@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.subastasUq.viewController.RegistroComprador">
+   <children>
+      <AnchorPane prefHeight="540.0" prefWidth="676.0">
+         <children>
+            <SplitPane dividerPositions="0.5388888888888889" layoutX="-2.0" orientation="VERTICAL" prefHeight="542.0" prefWidth="676.0">
+               <items>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="275.0" prefWidth="674.0">
+                     <children>
+                        <Text layoutX="58.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A continuacion ingrese la información solicitada en los formularios." wrappingWidth="434.13671875">
+                           <font>
+                              <Font name="Cambria Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <Separator layoutX="58.0" layoutY="42.0" prefHeight="6.0" prefWidth="332.0" style="-fx-background-color: #E58B5CFF;" />
+                        <Separator layoutX="58.0" layoutY="261.0" prefHeight="6.0" prefWidth="558.0" style="-fx-background-color: #E58B5CFF;" />
+                        <Separator layoutX="55.0" layoutY="44.0" orientation="VERTICAL" prefHeight="221.0" prefWidth="6.0" style="-fx-background-color: #E58B5CFF;" />
+                        <Circle fill="#e9eaeb" layoutX="583.0" layoutY="45.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
+                        <ImageView disable="true" fitHeight="37.0" fitWidth="50.0" layoutX="559.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../public.imagenes/png-clipart-person-logo-people-travel-text-rectangle.png" />
+                           </image>
+                        </ImageView>
+                        <Separator layoutX="612.0" layoutY="68.0" orientation="VERTICAL" prefHeight="201.0" prefWidth="6.0" style="-fx-background-color: #E58B5CFF;" />
+                        <Text layoutX="398.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informacioń Personal" wrappingWidth="146.9830722808838">
+                           <font>
+                              <Font name="Cambria Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <GridPane layoutX="81.0" layoutY="59.0" prefHeight="193.0" prefWidth="461.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="98.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="363.0" minWidth="10.0" prefWidth="363.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Text fx:id="textRegistro1" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:" wrappingWidth="105.0302734375">
+                                 <font>
+                                    <Font name="Cambria Bold" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="textRegistro11" strokeType="OUTSIDE" strokeWidth="0.0" text="Edad:" wrappingWidth="105.0302734375" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Cambria Bold" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="textRegistro12" strokeType="OUTSIDE" strokeWidth="0.0" text="Correo:" wrappingWidth="105.0302734375" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Cambria Bold" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="textRegistro13" strokeType="OUTSIDE" strokeWidth="0.0" text="Cedula:" wrappingWidth="105.0302734375" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Cambria Bold" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="textRegistro14" strokeType="OUTSIDE" strokeWidth="0.0" text="Edad:" wrappingWidth="198.0302734375" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Cambria Bold" size="18.0" />
+                                 </font>
+                              </Text>
+                              <TextField fx:id="nombreDato" prefHeight="23.0" prefWidth="217.0" promptText="Ingrese su Nombre" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Cambria Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="edadDato" promptText="Ingrese su Edad" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Cambria Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="cedulaDato" promptText="Ingrese su Cedula" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Cambria Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="correoDato" promptText="Ingrese su Correo" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Cambria Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="26.0" prefWidth="217.0" promptText="Ingrese su Edad" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Cambria Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Direccion:" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="Cambria Bold" size="18.0" />
+                                 </font>
+                              </Text>
+                              <TextField promptText="Ingrese su Direccion:" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="Cambria Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+                  <Pane prefHeight="229.0" prefWidth="621.0">
+                     <children>
+                        <Circle fill="#e9eaeb" layoutX="62.0" layoutY="68.0" radius="36.0" stroke="BLACK" strokeType="INSIDE" />
+                        <ImageView fitHeight="53.0" fitWidth="51.0" layoutX="37.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../public.imagenes/6772234.png" />
+                           </image>
+                        </ImageView>
+                        <Separator layoutX="103.0" layoutY="61.0" prefHeight="7.0" prefWidth="342.0" style="-fx-background-color: #E58B5CFF;" />
+                        <Separator layoutX="59.0" layoutY="192.0" prefHeight="7.0" prefWidth="558.0" style="-fx-background-color: #E58B5CFF;" />
+                        <Separator layoutX="56.0" layoutY="105.0" orientation="VERTICAL" prefHeight="87.0" prefWidth="6.0" style="-fx-background-color: #E58B5CFF;" />
+                        <Separator layoutX="611.0" layoutY="73.0" orientation="VERTICAL" prefHeight="121.0" prefWidth="6.0" style="-fx-background-color: #E58B5CFF;" />
+                        <GridPane layoutX="103.0" layoutY="82.0" prefHeight="87.0" prefWidth="388.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="239.0" minWidth="10.0" prefWidth="208.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="280.0" minWidth="10.0" prefWidth="280.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Text fx:id="textRegistro" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario:" wrappingWidth="105.0302734375">
+                                 <font>
+                                    <Font name="Cambria Bold" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña:" wrappingWidth="105.0302734375" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Cambria Bold" size="18.0" />
+                                 </font>
+                              </Text>
+                              <TextField GridPane.columnIndex="1" />
+                              <TextField prefHeight="28.0" prefWidth="251.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           </children>
+                        </GridPane>
+                        <Button layoutX="267.0" layoutY="208.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="141.0" style="-fx-background-color: #e58b5c;" text="Registrarse">
+                           <font>
+                              <Font name="Cambria Bold" size="14.0" />
+                           </font>
+                        </Button>
+                        <Text layoutX="103.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A continuacion ingrese la información solicitada para registrarse como usuario." wrappingWidth="522.13671875">
+                           <font>
+                              <Font name="Cambria Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="452.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Información de Usuario" wrappingWidth="164.13671875">
+                           <font>
+                              <Font name="Cambria Bold" size="14.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+               </items>
+            </SplitPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
