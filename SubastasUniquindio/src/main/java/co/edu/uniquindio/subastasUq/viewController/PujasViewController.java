@@ -15,8 +15,8 @@ public class PujasViewController {
     //Variables globales de la interfas
 
     PujasController pujasService;
-    ObservableList<AnuncioDto>anuncioDtos;
-    ObservableList<PujaDto>pujaDtos;
+    ObservableList<AnuncioDto>listAnuncioDto;
+    ObservableList<PujaDto> listPujaDtos;
     AnuncioDto anuncioSelecionado;
     PujaDto pujaSelecionada;
 
@@ -68,6 +68,14 @@ public class PujasViewController {
 
     }
 
+    public void obtenerAnuncios(){
+        listAnuncioDto.addAll(pujasService.obtenerAnunciosAnuncianteLog());
+    }
+
+    public void obtenerPujas(){
+        listPujaDtos.addAll(pujasService.obtenerPújasAnuncio(anuncioSelecionado));
+    }
+
     //FINAL METODOS INICIALIZAR
 
 
@@ -85,6 +93,9 @@ public class PujasViewController {
         });
     }
     //FiNAL METODOS SELECCION
+
+
+
 
 
 }

@@ -3,10 +3,7 @@ package co.edu.uniquindio.subastasUq.controller;
 import co.edu.uniquindio.subastasUq.controller.service.IModelFactoryController;
 import co.edu.uniquindio.subastasUq.exceptions.AnuncianteException;
 import co.edu.uniquindio.subastasUq.exceptions.CompradorException;
-import co.edu.uniquindio.subastasUq.mapping.dto.AnuncianteDto;
-import co.edu.uniquindio.subastasUq.mapping.dto.AnuncioDto;
-import co.edu.uniquindio.subastasUq.mapping.dto.CompradorDto;
-import co.edu.uniquindio.subastasUq.mapping.dto.ProductoDto;
+import co.edu.uniquindio.subastasUq.mapping.dto.*;
 import co.edu.uniquindio.subastasUq.mapping.mappers.SubastaMapper;
 import co.edu.uniquindio.subastasUq.model.*;
 import co.edu.uniquindio.subastasUq.utils.SubastaUqUtils;
@@ -159,6 +156,8 @@ public class ModelFactoryController implements IModelFactoryController {
         return mapper.getProductosDto(anunciante.getListaProductoAnunciante());
     }
 
+
+
     @Override
     public void addProducto(ProductoDto productoDto){ //no se que condicionales ponerle a eso
         Producto producto= mapper.productoDtoToProducto(productoDto);
@@ -179,7 +178,29 @@ public class ModelFactoryController implements IModelFactoryController {
         return mapper.getAnunciosDto(subastaUq.getListaAnuncios());
     }
 
+    public List<AnuncioDto> obtenerAnunciosAnunciante(){
+        Anunciante anunciante=mapper.anuncianteDtoToAnunciante(anuncianteDtoLogeado);
+        return mapper.getAnunciosDto(anunciante.getListaAnunciosAnunciante());
+    }
+
     //final metodos anuncio---------------------------------------------------------------------
+
+
+    //metodos pujas-----------------------------------------------------------------------
+
+    public List<PujaDto> obtenerPujasAnuncio(AnuncioDto anuncioSelecionado) {
+        Anunciante anunciante=mapper.anuncianteDtoToAnunciante(anuncianteDtoLogeado);
+        List<Puja>listaPujaAnuncio=anunciante
+                .getListaAnunciosAnunciante()
+                .stream()
+                .filter(anuncio -> anuncio.getCodigoAnuncio().equals(anuncioSelecionado.codigoAnuncio()))
+                .findFirst()
+                .get()
+                .getListaPujaProducto();
+        return mapper.getPujasDto(listaPujaAnuncio);
+    }
+
+    //final metodos puja-------------------------------------------------------------------
 
 
 

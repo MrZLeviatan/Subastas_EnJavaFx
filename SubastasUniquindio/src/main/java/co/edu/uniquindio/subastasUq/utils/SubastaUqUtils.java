@@ -1,9 +1,6 @@
 package co.edu.uniquindio.subastasUq.utils;
 
-import co.edu.uniquindio.subastasUq.model.Anunciante;
-import co.edu.uniquindio.subastasUq.model.Comprador;
-import co.edu.uniquindio.subastasUq.model.SubastasUq;
-import co.edu.uniquindio.subastasUq.model.Usuario;
+import co.edu.uniquindio.subastasUq.model.*;
 
 public class SubastaUqUtils {
     public static SubastasUq inicializarDatos() throws Exception {
@@ -27,10 +24,6 @@ public class SubastaUqUtils {
                         new Usuario("luis123","12345","12345")
                 )
         );
-
-
-
-
 
         return subastasUq;
     }
