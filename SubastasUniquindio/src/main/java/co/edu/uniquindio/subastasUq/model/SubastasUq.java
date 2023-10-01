@@ -56,7 +56,7 @@ public class SubastasUq implements ISubasta {
             listaComprador.add(compradorTemporal);//lo añade ala lista de anunciantes
         }else {
             if(usuario==null){
-                throw new RuntimeException("el usuario es nulo");
+                throw new NullPointerException("el usuario es nulo");
             }
         }
     }

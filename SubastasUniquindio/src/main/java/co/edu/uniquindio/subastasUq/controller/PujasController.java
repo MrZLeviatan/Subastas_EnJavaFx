@@ -13,11 +13,13 @@ public class PujasController {
         modelFactoryController=ModelFactoryController.getInstance();
     }
 
-    public List<PujaDto> obtenerPújasAnuncio(AnuncioDto anuncioSelecionado) {
-        return modelFactoryController.obtenerPujasAnuncio(anuncioSelecionado);
-    }
 
-    public List<AnuncioDto> obtenerAnunciosAnuncianteLog() {
-        return modelFactoryController.obtenerAnunciosAnunciante();
+
+    public List<PujaDto> obtenerPújasAnuncio(AnuncioDto anuncioSelecionado) {
+     return modelFactoryController.obtenerPujasAnuncio(anuncioSelecionado);
+   }
+
+   public List<AnuncioDto> obtenerAnunciosAnuncianteLog() {
+       return modelFactoryController.obtenerAnunciosAnunciante();
     }
 }

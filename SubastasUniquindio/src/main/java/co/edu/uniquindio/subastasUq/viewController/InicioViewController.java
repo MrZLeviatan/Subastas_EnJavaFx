@@ -20,7 +20,6 @@ public class InicioViewController {
     ObservableList<AnuncioDto> listaAnunciosDto= FXCollections.observableArrayList();
 
 
-
     @FXML
     private Button btnBuscar;
 

@@ -5,6 +5,7 @@ import co.edu.uniquindio.subastasUq.mapping.dto.AnuncianteDto;
 import co.edu.uniquindio.subastasUq.mapping.dto.AnuncioDto;
 import co.edu.uniquindio.subastasUq.mapping.dto.UsuarioDto;
 import co.edu.uniquindio.subastasUq.model.Anunciante;
+import co.edu.uniquindio.subastasUq.model.Anuncio;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,11 +15,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
+import java.util.List;
+
 public class RegistroAnuncianteViewController {
 
     ObservableList<AnuncianteDto>anunciantesDto= FXCollections.observableArrayList();
 
     RegistroAnuncianteController registroAnuncianteService;
+
+    SubastaViewController subastaViewController;
 
     @FXML
     private Button btnRegistrar;
@@ -40,30 +45,6 @@ public class RegistroAnuncianteViewController {
 
     @FXML
     private Text textRegistro14;
-
-    @FXML
-    private TableView<AnuncianteDto> tableUsuario;
-
-    @FXML
-    private TableColumn<AnuncianteDto, String> tcApellido;
-
-    @FXML
-    private TableColumn<AnuncianteDto, String> tcCedula;
-
-    @FXML
-    private TableColumn<UsuarioDto, String> tcContraseña;
-
-    @FXML
-    private TableColumn<UsuarioDto,String> tcCorreo;
-
-    @FXML
-    private TableColumn<AnuncianteDto, String> tcEdad;
-
-    @FXML
-    private TableColumn<AnuncianteDto, String> tcNobre;
-
-    @FXML
-    private TableColumn<UsuarioDto, String> tcUsario;
 
     @FXML
     private TextField txtCedula;
@@ -89,9 +70,7 @@ public class RegistroAnuncianteViewController {
     public void initialize(){
        registroAnuncianteService=new RegistroAnuncianteController();
        limpiarCampos();
-       initDataBinding();
-       tableUsuario.setItems(anunciantesDto);
-       tableUsuario.refresh();
+       subastaViewController=new SubastaViewController();
     }
 
 
@@ -110,15 +89,6 @@ public class RegistroAnuncianteViewController {
         txtCorreo.setText("");
     }
 
-    private void initDataBinding(){
-        tcNobre.setCellValueFactory(cellData->new SimpleStringProperty(cellData.getValue().nombre()));
-        tcApellido.setCellValueFactory(cellData->new SimpleStringProperty(cellData.getValue().apellido()));
-        tcCedula.setCellValueFactory(cellData->new SimpleStringProperty(cellData.getValue().cedula()));
-        tcEdad.setCellValueFactory(cellData->new SimpleStringProperty(String.valueOf(cellData.getValue().edad())));
-        tcContraseña.setCellValueFactory(cellData->new SimpleStringProperty(cellData.getValue().contrasena()));
-        tcCorreo.setCellValueFactory(cellData->new SimpleStringProperty(cellData.getValue().correo()));
-        tcUsario.setCellValueFactory(cellData->new SimpleStringProperty(cellData.getValue().Usuario()));
-    }
 
     private void registrar() {
         AnuncianteDto anuncianteDto= construirAnuncianteDto();
@@ -155,6 +125,8 @@ public class RegistroAnuncianteViewController {
                 txtApellido.getText(),
                 txtCedula.getText(),
                 Integer.parseInt(txtEdad.getText()),
+                null,
+                null,
                 new UsuarioDto(
                         txtContraseña.getText(),
                         txtCorreo.getText(),txtUsuario.getText()

@@ -66,7 +66,7 @@ public class ModelFactoryController implements IModelFactoryController {
 
 
     @Override
-    public boolean addAnunciante(AnuncianteDto anuncianteDto){
+    public boolean addAnunciante(AnuncianteDto anuncianteDto) {
         try {
             if(!subastaUq.usuarioExiste(anuncianteDto.cedula())){
                 Anunciante anunciante= mapper.anuncianteDtoToAnunciante(anuncianteDto);
@@ -201,32 +201,6 @@ public class ModelFactoryController implements IModelFactoryController {
     }
 
     //final metodos puja-------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public boolean addAnuncio(AnuncioDto anuncioDto){
         Anunciante anunciante=subastaUq.obtenerAnunciante(anuncianteDtoLogeado.cedula());

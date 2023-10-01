@@ -16,7 +16,11 @@ public class Anunciante extends Persona implements IAnunciante {
 
    public Anunciante(String nombre, String
            apellido, String cedula, Integer edad, Usuario usuario){
+
+
        super(nombre, apellido, cedula, edad);
+       this.listaAnuncioAnunciante=new ArrayList<>();
+       this.listaProductosAnunciante=new ArrayList<>();
        this.usuario = usuario;
 
    }

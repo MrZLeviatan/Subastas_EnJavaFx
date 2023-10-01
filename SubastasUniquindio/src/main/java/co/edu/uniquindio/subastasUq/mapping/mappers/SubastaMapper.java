@@ -21,10 +21,8 @@ public interface SubastaMapper {
     Comprador compradorDtoToComprador(CompradorDto compradorDto);
 
 
-    @Named("anuncianteToAnuncianteDto")
-    AnuncianteDto anuncianteToAnuncianteDto(Anunciante anunciante);
-
-    Anunciante anuncianteDtoToAnunciante(AnuncianteDto anuncianteDto);
+   @Named("anuncianteToAnuncianteDto")
+   AnuncianteDto anuncianteToAnuncianteDto(Anunciante anunciante);
 
     @Named("productoToProductoDto")
     ProductoDto productoToProductoDto(Producto producto);
@@ -51,4 +49,5 @@ public interface SubastaMapper {
     @IterableMapping(qualifiedByName = "productoToProductoDto")
     List<ProductoDto> getProductosDto(List<Producto> list);
 
+    Anunciante anuncianteDtoToAnunciante(AnuncianteDto anuncianteDto);
 }

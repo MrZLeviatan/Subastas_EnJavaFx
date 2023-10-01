@@ -27,7 +27,7 @@
                                        <children>
                                           <SplitPane prefHeight="540.0" prefWidth="756.0">
                                              <items>
-                                                <fx:include source="Pujas.fxml" />
+                                                <fx:include id= "verPujas" source="Pujas.fxml" />
                                              </items>
                                           </SplitPane>
                                        </children>
@@ -40,7 +40,7 @@
                                        <children>
                                           <SplitPane layoutX="6.0" layoutY="6.0" orientation="VERTICAL" prefHeight="542.0" prefWidth="790.0">
                                              <items>
-                                                <fx:include source="GestioDeAnuncios.fxml" />
+                                                <fx:include id="gestionAnuncios" source="GestioDeAnuncios.fxml" />
                                              </items>
                                           </SplitPane>
                                        </children>

@@ -21,6 +21,9 @@ public class AnuncioViewController {
     //-----variables globales
 
 
+    SubastaViewController subastaViewController=new SubastaViewController();
+
+
     AnuncioController anuncioServices;
     ObservableList<ProductoDto>productoDtos;
     ImageView imageView = new ImageView();
@@ -66,9 +69,6 @@ public class AnuncioViewController {
         productoDtos.addAll(anuncioServices.obtenerProductos());
     }
     //final inicializar
-
-
-
 
     //metodos para crear
 

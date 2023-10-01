@@ -1,72 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="734.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.subastasUq.viewController.SubastaViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="748.0" prefWidth="746.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.subastasUq.viewController.SubastaViewController">
    <children>
-      <TabPane layoutX="10.0" layoutY="10.0" prefHeight="780.0" prefWidth="758.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="tapSubasta" prefHeight="748.0" prefWidth="746.0" tabClosingPolicy="UNAVAILABLE">
          <tabs>
-            <Tab text="Inicio">
+            <Tab text="Menu">
                <content>
-                  <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
-                     <tabs>
-                        <Tab text="Menu">
-                          <content>
-                            <fx:include source="Inicio.fxml" />
-                          </content>
-                        </Tab>
-                     </tabs>
-                  </TabPane>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="320.0" prefWidth="424.0" />
+                  <fx:include source="Inicio.fxml" />
                </content>
             </Tab>
-            <Tab text="Login">
+            <Tab text="Autentificacion">
                <content>
-                  <TabPane prefHeight="665.0" prefWidth="758.0" tabClosingPolicy="UNAVAILABLE">
-                     <tabs>
-                        <Tab fx:id="interfazAutenticacion" text="Autenticación">
-                           <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                 <children>
-                                    <SplitPane layoutX="6.0" layoutY="6.0" orientation="VERTICAL" prefHeight="542.0" prefWidth="790.0">
-                                       <items>
-                                          <fx:include source="Autentificacion.fxml" />
-                                       </items>
-                                    </SplitPane>
-                                 </children>
-                              </AnchorPane>
-                           </content>
-                        </Tab>
-                        <Tab fx:id="interfasRegistro" text="Registro Anunciante">
-                           <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="751.0" prefWidth="758.0">
-                                 <children>
-                                    <SplitPane layoutX="19.0" orientation="VERTICAL" prefHeight="714.0" prefWidth="778.0">
-                                       <items>
-                                          <fx:include source="RegistroAnunciante.fxml" />
-                                       </items>
-                                    </SplitPane>
-                                 </children>
-                              </AnchorPane>
-                           </content>
-                        </Tab>
-                        <Tab text="Registro Comprador">
-                           <content>
-                              <AnchorPane prefHeight="585.0" prefWidth="851.0">
-                                 <children>
-                                    <SplitPane layoutX="45.0" layoutY="1.0" orientation="VERTICAL" prefHeight="541.0" prefWidth="768.0">
-                                      <items>
-                                          <fx:include source="RegistroComprador.fxml" />
-                                      </items>
-                                    </SplitPane>
-                                 </children>
-                              </AnchorPane>
-                           </content>
-                        </Tab>
-                     </tabs>
-                  </TabPane>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  <fx:include id="interfazAutentificacion" source="Autentificacion.fxml" />
+               </content>
+            </Tab>
+            <Tab text="Registrar Anunciante">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  <fx:include id="registroAnunciante" source="RegistroAnunciante.fxml" />
+
+               </content>
+            </Tab>
+            <Tab text="Registrar Comprador">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  <fx:include id="registroComprador" source="RegistroComprador.fxml" />
                </content>
             </Tab>
          </tabs>
