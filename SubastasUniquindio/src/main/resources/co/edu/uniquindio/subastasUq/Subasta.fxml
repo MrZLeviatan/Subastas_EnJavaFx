@@ -5,9 +5,9 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="608.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.subastasUq.viewController.SubastaViewController">
+<AnchorPane prefHeight="734.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.subastasUq.viewController.SubastaViewController">
    <children>
-      <TabPane layoutX="10.0" layoutY="10.0" prefHeight="598.0" prefWidth="758.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="10.0" layoutY="10.0" prefHeight="780.0" prefWidth="758.0" tabClosingPolicy="UNAVAILABLE">
          <tabs>
             <Tab text="Inicio">
                <content>
@@ -24,7 +24,7 @@
             </Tab>
             <Tab text="Login">
                <content>
-                  <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+                  <TabPane prefHeight="665.0" prefWidth="758.0" tabClosingPolicy="UNAVAILABLE">
                      <tabs>
                         <Tab fx:id="interfazAutenticacion" text="Autenticación">
                            <content>
@@ -41,9 +41,9 @@
                         </Tab>
                         <Tab fx:id="interfasRegistro" text="Registro Anunciante">
                            <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="751.0" prefWidth="758.0">
                                  <children>
-                                    <SplitPane layoutX="19.0" layoutY="6.0" orientation="VERTICAL" prefHeight="559.0" prefWidth="777.0">
+                                    <SplitPane layoutX="19.0" orientation="VERTICAL" prefHeight="714.0" prefWidth="778.0">
                                        <items>
                                           <fx:include source="RegistroAnunciante.fxml" />
                                        </items>

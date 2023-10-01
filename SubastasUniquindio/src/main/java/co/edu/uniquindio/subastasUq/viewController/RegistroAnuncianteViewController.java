@@ -2,7 +2,9 @@ package co.edu.uniquindio.subastasUq.viewController;
 
 import co.edu.uniquindio.subastasUq.controller.RegistroAnuncianteController;
 import co.edu.uniquindio.subastasUq.mapping.dto.AnuncianteDto;
+import co.edu.uniquindio.subastasUq.mapping.dto.AnuncioDto;
 import co.edu.uniquindio.subastasUq.mapping.dto.UsuarioDto;
+import co.edu.uniquindio.subastasUq.model.Anunciante;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -88,6 +90,8 @@ public class RegistroAnuncianteViewController {
        registroAnuncianteService=new RegistroAnuncianteController();
        limpiarCampos();
        initDataBinding();
+       tableUsuario.setItems(anunciantesDto);
+       tableUsuario.refresh();
     }
 
 
@@ -95,6 +99,7 @@ public class RegistroAnuncianteViewController {
     void registrarAnunciante(ActionEvent event) {
         registrar();
     }
+
     private void limpiarCampos() {
         txtNombre.setText("");
         txtApellido.setText("");
@@ -117,8 +122,8 @@ public class RegistroAnuncianteViewController {
 
     private void registrar() {
         AnuncianteDto anuncianteDto= construirAnuncianteDto();
-        anunciantesDto.add(anuncianteDto);
         if(datosValidosAnuniante(anuncianteDto)){
+            anunciantesDto.add(anuncianteDto);
             if(registroAnuncianteService.addAnunciante(anuncianteDto)){
                 mostrarMensaje("Notificación anunciante", "Anunciante creado", "El anunciante se ha creado con éxito", Alert.AlertType.INFORMATION);
                 limpiarCampos();

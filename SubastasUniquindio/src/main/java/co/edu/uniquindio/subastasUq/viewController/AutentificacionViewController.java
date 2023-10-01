@@ -2,14 +2,21 @@ package co.edu.uniquindio.subastasUq.viewController;
 
 import co.edu.uniquindio.subastasUq.controller.AutentificacionController;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
 public class AutentificacionViewController {
@@ -40,11 +47,17 @@ public class AutentificacionViewController {
     private void ingresar() throws IOException {
         if(verificarCampos())
         if(autentificacionServices.auntetificarAnunciante(txtUsario.getText(),txtContraseña.getText())){
-            //aca carga la ventana de anunciante
-        } else if (autentificacionServices.autentificarComprador(txtUsario.getText(),txtContraseña.getText())) {
-            FXMLLoader fxmlLoader= new FXMLLoader(getClass().getClass().getResource("panelAnunciante,fxml"));
-            Scene scene= new Scene(fxmlLoader.load());
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("PanelAnunciante.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.showAndWait();
 
+
+        } else if (autentificacionServices.autentificarComprador(txtUsario.getText(),txtContraseña.getText())) {
+           cambiarVentana("PanelComprador.fxml");
         }
         else {
             mostrarMensaje("seccion invalida","seccion no iniciada", "datos incorrectos verificar", Alert.AlertType.INFORMATION);
@@ -72,6 +85,18 @@ public class AutentificacionViewController {
         aler.setHeaderText(header);
         aler.setContentText(contenido);
         aler.showAndWait();
+    }
+
+    public void cambiarVentana(String nombreFxml) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(nombreFxml));
+        loader.setLocation(getClass().getResource(nombreFxml));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.showAndWait();
+
     }
 
 }

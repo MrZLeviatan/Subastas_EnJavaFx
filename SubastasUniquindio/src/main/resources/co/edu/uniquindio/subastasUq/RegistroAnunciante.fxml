@@ -62,7 +62,7 @@
                               <Font name="Cambria Bold" size="18.0" />
                            </font>
                         </Text>
-                        <Text fx:id="textRegistro11" strokeType="OUTSIDE" strokeWidth="0.0" text="Edad:" wrappingWidth="105.0302734375" GridPane.rowIndex="2">
+                        <Text fx:id="textRegistro11" strokeType="OUTSIDE" strokeWidth="0.0" text="Edad1:" wrappingWidth="105.0302734375" GridPane.rowIndex="2">
                            <font>
                               <Font name="Cambria Bold" size="18.0" />
                            </font>
