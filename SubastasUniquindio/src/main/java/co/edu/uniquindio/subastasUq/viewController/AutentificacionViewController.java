@@ -1,6 +1,8 @@
 package co.edu.uniquindio.subastasUq.viewController;
 
+import co.edu.uniquindio.subastasUq.SubastaAplication;
 import co.edu.uniquindio.subastasUq.controller.AutentificacionController;
+import co.edu.uniquindio.subastasUq.controller.SubastaController;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -47,17 +49,9 @@ public class AutentificacionViewController {
     private void ingresar() throws IOException {
         if(verificarCampos())
         if(autentificacionServices.auntetificarAnunciante(txtUsario.getText(),txtContraseña.getText())){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("PanelAnunciante.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setScene(scene);
-            stage.showAndWait();
-
 
         } else if (autentificacionServices.autentificarComprador(txtUsario.getText(),txtContraseña.getText())) {
-           cambiarVentana("PanelComprador.fxml");
+
         }
         else {
             mostrarMensaje("seccion invalida","seccion no iniciada", "datos incorrectos verificar", Alert.AlertType.INFORMATION);

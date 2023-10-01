@@ -11,7 +11,6 @@ public class Anuncio {
     private Producto producto;
     private LocalDate fechaInicio;
     private LocalDate fechaFinal;
-    private Image foto;
     private String nombreAnunciante;
 
     private double precioInicial;
@@ -86,11 +85,4 @@ public class Anuncio {
         this.precioInicial = precioInicial;
     }
 
-    public Image getFoto() {
-        return foto;
-    }
-
-    public void setFoto(Image foto) {
-        this.foto = foto;
-    }
 }

@@ -1,19 +1,20 @@
 package co.edu.uniquindio.subastasUq.model;
 
 import co.edu.uniquindio.subastasUq.exceptions.AnuncianteException;
+import co.edu.uniquindio.subastasUq.model.services.ISubasta;
 import co.edu.uniquindio.subastasUq.utils.AnuncioUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class SubastasUq  {
+public class SubastasUq implements ISubasta {
 
     ArrayList<Anunciante> listaAnunciantes = new ArrayList<>();
     ArrayList<Comprador> listaComprador = new ArrayList<>();
     ArrayList<Anuncio> listaAnuncios = new ArrayList<>();
 
-    // ?? ArrayList<Puja> listaPuja = new ArrayList<>();
+
 
     public SubastasUq() {
 

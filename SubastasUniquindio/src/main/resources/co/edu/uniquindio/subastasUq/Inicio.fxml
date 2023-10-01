@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="475.0" prefWidth="738.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.subastasUq.viewController.InicioViewController">
+<AnchorPane prefHeight="589.0" prefWidth="738.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.subastasUq.viewController.InicioViewController">
    <children>
-      <TableView fx:id="tableAnuncios" layoutX="43.0" layoutY="253.0" prefHeight="200.0" prefWidth="670.0">
+      <TableView fx:id="tableAnuncios" layoutX="43.0" layoutY="253.0" prefHeight="327.0" prefWidth="670.0">
         <columns>
           <TableColumn fx:id="tcCodigoAnuncio" prefWidth="75.0" text="Codigo" />
           <TableColumn fx:id="tcAnunciante" prefWidth="87.0" text="Anunciante" />
