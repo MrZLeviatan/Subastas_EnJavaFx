@@ -4,15 +4,17 @@ import co.edu.uniquindio.subastasUq.controller.RegistroAnuncianteController;
 import co.edu.uniquindio.subastasUq.mapping.dto.AnuncianteDto;
 import co.edu.uniquindio.subastasUq.mapping.dto.UsuarioDto;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
 public class RegistroAnuncianteViewController {
 
-    ObservableList<AnuncianteDto>anunciantesDto;
+    ObservableList<AnuncianteDto>anunciantesDto= FXCollections.observableArrayList();
 
     RegistroAnuncianteController registroAnuncianteService;
 
@@ -115,9 +117,9 @@ public class RegistroAnuncianteViewController {
 
     private void registrar() {
         AnuncianteDto anuncianteDto= construirAnuncianteDto();
+        anunciantesDto.add(anuncianteDto);
         if(datosValidosAnuniante(anuncianteDto)){
             if(registroAnuncianteService.addAnunciante(anuncianteDto)){
-                anunciantesDto.add(anuncianteDto);
                 mostrarMensaje("Notificación anunciante", "Anunciante creado", "El anunciante se ha creado con éxito", Alert.AlertType.INFORMATION);
                 limpiarCampos();
             }
