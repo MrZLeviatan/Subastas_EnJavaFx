@@ -111,17 +111,21 @@ public class RegistroCompradorViewController {
 
     //metodo para crear un compradorDto
     private CompradorDto construirCompradorDto() {
-        return new CompradorDto(
-                txtNombre.getText(),
-                txtApellido.getText(),
-                txtCedula.getText(),
-                Integer.parseInt(txtEdad.getText()),
-                txtDireccion.getText(),
-                new UsuarioDto(txtContraseña.getText()
-                        , txtCorreo.getText()
-                        , txtUsuario.getText()
-                )
-        );
+        if (verificacion()) {
+            return new CompradorDto(
+                    txtNombre.getText(),
+                    txtApellido.getText(),
+                    txtCedula.getText(),
+                    Integer.parseInt(txtEdad.getText()),
+                    txtDireccion.getText(),
+                    new UsuarioDto(txtContraseña.getText()
+                            , txtCorreo.getText()
+                            , txtUsuario.getText()
+                    )
+            );
+        }else {
+             return null;
+        }
     }
 
     private boolean datosValidosCompradorDto(CompradorDto compradorDto) {

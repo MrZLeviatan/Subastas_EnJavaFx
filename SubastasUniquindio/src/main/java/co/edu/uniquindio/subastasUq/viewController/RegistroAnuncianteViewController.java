@@ -75,6 +75,34 @@ public class RegistroAnuncianteViewController {
     }
 
 
+    public boolean verificacion () {
+
+        String mensaje = "";
+        if (!txtCedula.getText().isEmpty());
+
+        try {
+            Integer.parseInt(txtCedula.getText());
+        }catch (NumberFormatException e){
+            mensaje += "El campo cedula debe ser numerico \n";
+            mostrarMensaje("notificacion comprador", "Datos invalidos", mensaje, Alert.AlertType.WARNING);
+            return false;
+        }
+
+        if (!txtEdad.getText().isEmpty());
+
+        try {
+            Integer.parseInt(txtEdad.getText());
+        }catch (NumberFormatException e){
+            mensaje += "El campo edad debe ser numerico \n";
+            mostrarMensaje("notificacion comprador", "Datos invalidos", mensaje, Alert.AlertType.WARNING);
+            return false;
+        }
+
+
+        return true;
+    }
+
+
     @FXML
     void registrarAnunciante(ActionEvent event) {
         registrar();
@@ -93,18 +121,18 @@ public class RegistroAnuncianteViewController {
 
     private void registrar() {
         AnuncianteDto anuncianteDto= construirAnuncianteDto();
-        if(datosValidosAnuniante(anuncianteDto)){
-            anunciantesDto.add(anuncianteDto);
-            if(registroAnuncianteService.addAnunciante(anuncianteDto)){
-                mostrarMensaje("Notificación anunciante", "Anunciante creado", "El anunciante se ha creado con éxito", Alert.AlertType.INFORMATION);
-                limpiarCampos();
-            }
-            else {
+        if(datosValidosAnuniante(anuncianteDto)) {
+            if (verificacion()) {
+                if (registroAnuncianteService.addAnunciante(anuncianteDto)) {
+                    mostrarMensaje("Notificación anunciante", "Anunciante creado", "El anunciante se ha creado con éxito", Alert.AlertType.INFORMATION);
+                    limpiarCampos();
+                } else {
+                    mostrarMensaje("Notificacion anunciante", "anunciante no creado", "los datos ingresados son invalidos", Alert.AlertType.ERROR);
+                }
+
+            } else {
                 mostrarMensaje("Notificacion anunciante", "anunciante no creado", "los datos ingresados son invalidos", Alert.AlertType.ERROR);
             }
-
-        }else {
-            mostrarMensaje("Notificacion anunciante", "anunciante no creado", "los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
 
 
@@ -121,18 +149,22 @@ public class RegistroAnuncianteViewController {
     }
 
     private AnuncianteDto construirAnuncianteDto() {
-        return new AnuncianteDto(
-                txtNombre.getText(),
-                txtApellido.getText(),
-                txtCedula.getText(),
-                txtEdad.getText(),
-                null,
-                null,
-                new UsuarioDto(
-                        txtContraseña.getText(),
-                        txtCorreo.getText(),txtUsuario.getText()
-                )
-        );
+        if (verificacion()) {
+            return new AnuncianteDto(
+                    txtNombre.getText(),
+                    txtApellido.getText(),
+                    txtCedula.getText(),
+                    Integer.parseInt(txtEdad.getText()),
+                    null,
+                    null,
+                    new UsuarioDto(
+                            txtContraseña.getText(),
+                            txtCorreo.getText(), txtUsuario.getText()
+                    )
+            );
+        }else {
+            return null;
+        }
     }
 
     private boolean datosValidosAnuniante(AnuncianteDto anuncianteDto) {

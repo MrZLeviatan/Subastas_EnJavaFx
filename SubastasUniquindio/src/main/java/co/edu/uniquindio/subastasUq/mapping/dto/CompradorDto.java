@@ -9,4 +9,13 @@ public record CompradorDto(
 
         UsuarioDto usuarioDto
 ) {
+
+    @Override
+    public String toString() { return "CompradorDto{" +  "nombre='" + nombre + '\'' +  ", apellido='" + apellido + '\'' +
+                ", cedula='" + cedula + '\'' +
+                ", edad=" + edad +
+                ", direccion='" + direccion + '\'' +
+                ", usuarioDto=" + usuarioDto +
+                '}';
+    }
 }
