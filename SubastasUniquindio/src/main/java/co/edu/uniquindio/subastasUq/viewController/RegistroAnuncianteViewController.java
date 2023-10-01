@@ -66,6 +66,7 @@ public class RegistroAnuncianteViewController {
     @FXML
     private TextField txtApellido;
 
+
     @FXML
     public void initialize(){
        registroAnuncianteService=new RegistroAnuncianteController();
@@ -124,7 +125,7 @@ public class RegistroAnuncianteViewController {
                 txtNombre.getText(),
                 txtApellido.getText(),
                 txtCedula.getText(),
-                Integer.parseInt(txtEdad.getText()),
+                txtEdad.getText(),
                 null,
                 null,
                 new UsuarioDto(

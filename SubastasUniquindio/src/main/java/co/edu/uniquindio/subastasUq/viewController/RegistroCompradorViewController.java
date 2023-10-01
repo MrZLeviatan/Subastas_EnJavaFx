@@ -1,5 +1,4 @@
 package co.edu.uniquindio.subastasUq.viewController;
-import co.edu.uniquindio.subastasUq.controller.ModelFactoryController;
 import co.edu.uniquindio.subastasUq.controller.RegistroCompradorController;
 import co.edu.uniquindio.subastasUq.exceptions.CompradorException;
 import co.edu.uniquindio.subastasUq.mapping.dto.CompradorDto;
@@ -71,6 +70,34 @@ public class RegistroCompradorViewController {
     }
 
 
+    public boolean verificacion () {
+
+        String mensaje = "";
+        if (!txtCedula.getText().isEmpty());
+
+        try {
+            Integer.parseInt(txtCedula.getText());
+        }catch (NumberFormatException e){
+            mensaje += "El campo cedula debe ser numerico \n";
+            mostrarMensaje("notificacion comprador", "Datos invalidos", mensaje, Alert.AlertType.WARNING);
+            return false;
+        }
+
+        if (!txtEdad.getText().isEmpty());
+
+        try {
+            Integer.parseInt(txtEdad.getText());
+        }catch (NumberFormatException e){
+            mensaje += "El campo edad debe ser numerico \n";
+            mostrarMensaje("notificacion comprador", "Datos invalidos", mensaje, Alert.AlertType.WARNING);
+            return false;
+        }
+
+
+        return true;
+    }
+
+
     private void limpiarCampos() {
         txtNombre.setText("");
         txtApellido.setText("");
@@ -88,7 +115,7 @@ public class RegistroCompradorViewController {
                 txtNombre.getText(),
                 txtApellido.getText(),
                 txtCedula.getText(),
-                20,
+                Integer.parseInt(txtEdad.getText()),
                 txtDireccion.getText(),
                 new UsuarioDto(txtContraseña.getText()
                         , txtCorreo.getText()
@@ -123,18 +150,22 @@ public class RegistroCompradorViewController {
         }
     }
 
+
+
     private void registar() {
         CompradorDto compradorDto = construirCompradorDto();
         System.out.println(compradorDto.nombre());
         if (datosValidosCompradorDto(compradorDto)) {
-            if (registroCompradorController.agregarComprador(compradorDto)) {
-                mostrarMensaje("Notificación comprador", "Comprador creado", "El comprador se ha creado con éxito", Alert.AlertType.INFORMATION);
-                limpiarCampos();
-            } else {
+            if (verificacion()){
+                if (registroCompradorController.agregarComprador(compradorDto)) {
+                    mostrarMensaje("Notificación comprador", "Comprador creado", "El comprador se ha creado con éxito", Alert.AlertType.INFORMATION);
+                    limpiarCampos();
+                } else {
+                    mostrarMensaje("Notificacion comprador", "Comprador no creado", "los datos ingresados son invalidos", Alert.AlertType.ERROR);
+                }
+            } else{
                 mostrarMensaje("Notificacion comprador", "Comprador no creado", "los datos ingresados son invalidos", Alert.AlertType.ERROR);
             }
-        } else {
-            mostrarMensaje("Notificacion comprador", "Comprador no creado", "los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
     }
 

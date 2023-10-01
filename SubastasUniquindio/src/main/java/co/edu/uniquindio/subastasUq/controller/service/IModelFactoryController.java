@@ -14,6 +14,7 @@ public interface IModelFactoryController {
 
     boolean deleteAnunciante(String cedula) throws AnuncianteException;
 
+
     boolean addAnunciante(AnuncianteDto anuncianteDto);
     void addProducto(ProductoDto productoDto);
 
