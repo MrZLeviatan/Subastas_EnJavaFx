@@ -2,6 +2,8 @@ package co.edu.uniquindio.subastasUq.viewController;
 import co.edu.uniquindio.subastasUq.controller.PujasController;
 import co.edu.uniquindio.subastasUq.mapping.dto.AnuncioDto;
 import co.edu.uniquindio.subastasUq.mapping.dto.PujaDto;
+import javafx.beans.property.SimpleSetProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,7 +42,7 @@ public class PujasViewController {
     @FXML
     private TableColumn<PujaDto, String> tcFecha;
     @FXML
-    private TableColumn<PujaDto, String> tcFechaInicial;
+    private TableColumn<PujaDto, String> tcOfertaInicial;
 
     @FXML
     private Text text;
@@ -53,7 +55,11 @@ public class PujasViewController {
     //EVENTS
     @FXML
     void elegirPuja(ActionEvent event) {
-
+        if (pujaSelecionada != null) {
+            //aca que se hace o que
+        }else {
+            //mostrar mensaje de puja
+        }
     }
     //FINAL EVENTS
 
@@ -65,6 +71,18 @@ public class PujasViewController {
         pujasService= new PujasController();
         listenerSelectionPuja();
         listenerSelectionAnuncio();
+        obtenerAnuncios();
+        initDataBinding();
+
+    }
+
+    private void initDataBinding(){
+        tcCodigo.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().codigoAnuncio()));
+        tcCodigoPuja.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().codigo()));
+        tcComprador.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().nombreOfertante()));
+        tcFecha.setCellValueFactory(cellData->new SimpleStringProperty(cellData.getValue().fecha().toString()));
+        tcOfertaInicial.setCellValueFactory(cellData->new SimpleStringProperty(String.valueOf(cellData.getValue().oferta())));
+        tcNobre.setCellValueFactory(cellData->new SimpleStringProperty(cellData.getValue().producto().getNombre()));
 
     }
 
@@ -85,6 +103,7 @@ public class PujasViewController {
             anuncioSelecionado = newSelection;
             System.out.println(anuncioSelecionado.codigoAnuncio());
         });
+        obtenerPujas();
     }
     private  void listenerSelectionPuja() {
         tablePujas.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {

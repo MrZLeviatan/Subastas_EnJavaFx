@@ -6,13 +6,17 @@ import java.time.LocalDateTime;
 public class Puja {
 
     private String codigo;
+
+    private String nombreOfertante;
     private Integer oferta;
     private LocalDateTime fecha;
 
-    public Puja(String codigo, Integer oferta, LocalDateTime fecha) {
+
+    public Puja(String codigo, Integer oferta, LocalDateTime fecha,String nombreOfertante) {
         this.codigo = codigo;
         this.oferta = oferta;
         this.fecha = fecha;
+        this.nombreOfertante=nombreOfertante;
     }
 
     public String getCodigo() {

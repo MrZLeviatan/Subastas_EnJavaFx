@@ -34,7 +34,7 @@
                         <TableColumn fx:id="tcComprador" prefWidth="75.0" text="Comprador" />
                         <TableColumn fx:id="tcCodigoPuja" prefWidth="100.0" text="Codigo de puja" />
                         <TableColumn fx:id="tcFecha" prefWidth="91.99993896484375" text="Fecha" />
-                        <TableColumn fx:id="tcFechaInicial" prefWidth="84.00006103515625" text="Oferta Inical" />
+                        <TableColumn fx:id="tcOfertaInicial" prefWidth="84.00006103515625" text="Oferta Inical" />
                      </columns>
                   </TableView>
                   <Button fx:id="btnElegirPuja" layoutX="156.0" layoutY="481.0" mnemonicParsing="false" onAction="#elegirPuja" prefHeight="37.0" prefWidth="127.0" style="-fx-background-color: #e58b5c;" text="Elegir puja" textFill="WHITE">

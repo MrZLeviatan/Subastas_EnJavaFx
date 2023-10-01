@@ -3,14 +3,16 @@ package co.edu.uniquindio.subastasUq.viewController;
 import co.edu.uniquindio.subastasUq.controller.RegistroAnuncianteController;
 import co.edu.uniquindio.subastasUq.mapping.dto.AnuncianteDto;
 import co.edu.uniquindio.subastasUq.mapping.dto.UsuarioDto;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
 public class RegistroAnuncianteViewController {
+
+    ObservableList<AnuncianteDto>anunciantesDto;
 
     RegistroAnuncianteController registroAnuncianteService;
 
@@ -36,6 +38,30 @@ public class RegistroAnuncianteViewController {
     private Text textRegistro14;
 
     @FXML
+    private TableView<AnuncianteDto> tableUsuario;
+
+    @FXML
+    private TableColumn<AnuncianteDto, String> tcApellido;
+
+    @FXML
+    private TableColumn<AnuncianteDto, String> tcCedula;
+
+    @FXML
+    private TableColumn<UsuarioDto, String> tcContraseña;
+
+    @FXML
+    private TableColumn<UsuarioDto,String> tcCorreo;
+
+    @FXML
+    private TableColumn<AnuncianteDto, String> tcEdad;
+
+    @FXML
+    private TableColumn<AnuncianteDto, String> tcNobre;
+
+    @FXML
+    private TableColumn<UsuarioDto, String> tcUsario;
+
+    @FXML
     private TextField txtCedula;
 
     @FXML
@@ -58,6 +84,8 @@ public class RegistroAnuncianteViewController {
     @FXML
     public void initialize(){
        registroAnuncianteService=new RegistroAnuncianteController();
+       limpiarCampos();
+       initDataBinding();
     }
 
 
@@ -75,10 +103,21 @@ public class RegistroAnuncianteViewController {
         txtCorreo.setText("");
     }
 
+    private void initDataBinding(){
+        tcNobre.setCellValueFactory(cellData->new SimpleStringProperty(cellData.getValue().nombre()));
+        tcApellido.setCellValueFactory(cellData->new SimpleStringProperty(cellData.getValue().apellido()));
+        tcCedula.setCellValueFactory(cellData->new SimpleStringProperty(cellData.getValue().cedula()));
+        tcEdad.setCellValueFactory(cellData->new SimpleStringProperty(String.valueOf(cellData.getValue().edad())));
+        tcContraseña.setCellValueFactory(cellData->new SimpleStringProperty(cellData.getValue().contrasena()));
+        tcCorreo.setCellValueFactory(cellData->new SimpleStringProperty(cellData.getValue().correo()));
+        tcUsario.setCellValueFactory(cellData->new SimpleStringProperty(cellData.getValue().Usuario()));
+    }
+
     private void registrar() {
         AnuncianteDto anuncianteDto= construirAnuncianteDto();
         if(datosValidosAnuniante(anuncianteDto)){
             if(registroAnuncianteService.addAnunciante(anuncianteDto)){
+                anunciantesDto.add(anuncianteDto);
                 mostrarMensaje("Notificación anunciante", "Anunciante creado", "El anunciante se ha creado con éxito", Alert.AlertType.INFORMATION);
                 limpiarCampos();
             }
