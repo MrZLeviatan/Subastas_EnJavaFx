@@ -24,7 +24,7 @@ public class SubastaUqUtils {
                         "12345",
                         13,
                         "addsadada",
-                        new Usuario("luis123","12345","luis@gmail")
+                        new Usuario("luis123","12345","12345")
                 )
         );
 

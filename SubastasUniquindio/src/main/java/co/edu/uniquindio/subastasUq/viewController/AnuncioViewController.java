@@ -19,6 +19,8 @@ import java.util.List;
 
 public class AnuncioViewController {
     //-----variables globales
+
+
     AnuncioController anuncioServices;
     ObservableList<ProductoDto>productoDtos;
     ImageView imageView = new ImageView();

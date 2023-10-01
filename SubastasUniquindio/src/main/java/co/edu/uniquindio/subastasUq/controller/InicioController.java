@@ -9,6 +9,7 @@ public class InicioController implements IInicioController {
     ModelFactoryController modelFactoryController;
 
     public InicioController(){
+
         modelFactoryController=ModelFactoryController.getInstance();
     }
 

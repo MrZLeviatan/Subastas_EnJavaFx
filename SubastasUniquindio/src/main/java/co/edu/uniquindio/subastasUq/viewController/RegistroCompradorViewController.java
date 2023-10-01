@@ -61,7 +61,7 @@ public class RegistroCompradorViewController {
 
     @FXML
     void initialize() {
-     //  registroCompradorController = new RegistroCompradorController();
+      registroCompradorController = new RegistroCompradorController();
     }
 
 

@@ -9,6 +9,7 @@ import co.edu.uniquindio.subastasUq.mapping.dto.CompradorDto;
 import co.edu.uniquindio.subastasUq.mapping.dto.ProductoDto;
 import co.edu.uniquindio.subastasUq.mapping.mappers.SubastaMapper;
 import co.edu.uniquindio.subastasUq.model.*;
+import co.edu.uniquindio.subastasUq.utils.SubastaUqUtils;
 
 import java.util.List;
 
@@ -25,21 +26,29 @@ public class ModelFactoryController implements IModelFactoryController {
 
     //metodos Singleton------------------------------------------------------------------------
     private static class SingletonHolder {
-        private final static ModelFactoryController eINSTANCE = new ModelFactoryController();
+        private final static ModelFactoryController eINSTANCE;
+
+        static {
+            try {
+                eINSTANCE = new ModelFactoryController();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     public static ModelFactoryController getInstance() {
         return SingletonHolder.eINSTANCE;
-    }
+    }//me llama al model factory
 
-    public ModelFactoryController() {
+    public ModelFactoryController() throws Exception {
         System.out.println("invocación clase singleton");
-        subastaUq = new SubastasUq();
+        subastaUq = SubastaUqUtils.inicializarDatos();
     }
 
     public SubastasUq getSubastaUq() {
         return subastaUq;
-    }
+    } //me meto ala subasta
 
     //final metodosSingleton----------------------------------------------
 

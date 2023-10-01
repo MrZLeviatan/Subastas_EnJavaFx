@@ -46,7 +46,7 @@ public interface SubastaMapper {
     List<AnuncioDto> getAnunciosDto(List<Anuncio> listaAnuncios);
 
 
-    @IterableMapping(qualifiedByName = "prductoToProductoDto")
+    @IterableMapping(qualifiedByName = "productoToProductoDto")
     List<ProductoDto> getProductosDto(List<Producto> lisaProductos);
 
 }

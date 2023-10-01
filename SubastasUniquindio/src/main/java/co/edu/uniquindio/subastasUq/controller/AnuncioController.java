@@ -11,6 +11,7 @@ public class AnuncioController {
     ModelFactoryController modelFactoryController;
 
     public AnuncioController(){
+
         modelFactoryController=ModelFactoryController.getInstance();
     }
 

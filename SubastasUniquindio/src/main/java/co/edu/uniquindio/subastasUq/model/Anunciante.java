@@ -11,6 +11,9 @@ public class Anunciante extends Persona implements IAnunciante {
     private ArrayList<Anuncio> listaAnuncioAnunciante = new ArrayList<>();
 
 
+
+
+
    public Anunciante(String nombre, String
            apellido, String cedula, Integer edad, Usuario usuario){
        super(nombre, apellido, cedula, edad);

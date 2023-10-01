@@ -57,7 +57,7 @@ public class RegistroAnuncianteViewController {
 
     @FXML
     public void initialize(){
-       // registroAnuncianteService=new RegistroAnuncianteController();
+       registroAnuncianteService=new RegistroAnuncianteController();
     }
 
 

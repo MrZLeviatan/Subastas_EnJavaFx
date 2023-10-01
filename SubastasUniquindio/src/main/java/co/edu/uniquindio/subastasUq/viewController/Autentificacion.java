@@ -3,10 +3,15 @@ package co.edu.uniquindio.subastasUq.viewController;
 import co.edu.uniquindio.subastasUq.controller.AutentificacionController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+
+import java.io.IOException;
 
 public class Autentificacion {
 
@@ -25,20 +30,22 @@ public class Autentificacion {
 
     @FXML
     private void initialize(){
-       // autentificacionServices=new AutentificacionController();
+       autentificacionServices=new AutentificacionController();
     }
 
     @FXML
-    void ingresarUsario(ActionEvent event) {
+    void ingresarUsario(ActionEvent event) throws IOException {
         ingresar();
     }
 
-    private void ingresar() {
+    private void ingresar() throws IOException {
         if(verificarCampos())
         if(autentificacionServices.auntetificarAnunciante(txtUsario.getText(),txtContraseña.getText())){
             //aca carga la ventana de anunciante
         } else if (autentificacionServices.autentificarComprador(txtUsario.getText(),txtContraseña.getText())) {
-            //aca carga la ventana de comprador
+            FXMLLoader fxmlLoader= new FXMLLoader(getClass().getClass().getResource("panelAnunciante,fxml"));
+            Scene scene= new Scene(fxmlLoader.load());
+
         }
         else {
             mostrarMensaje("seccion invalida","seccion no iniciada", "datos incorrectos verificar", Alert.AlertType.INFORMATION);
