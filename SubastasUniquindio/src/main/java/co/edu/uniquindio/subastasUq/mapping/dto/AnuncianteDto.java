@@ -11,9 +11,17 @@ public record AnuncianteDto(
         List<ProductoDto>productos,
         UsuarioDto usuarioDto ) {
 
+    @Override
+    public String toString(){
+        return "Anunciante{"+
+                "nombre:" + nombre+ '\''+
+                "apellido: "+ apellido + '\''+
+                "cedula: "+ cedula+ '\''+
+                "edad" + edad + '\''+
+                "usuario: "+ usuarioDto+ '\''
+                ;
+    }
+
 
 
 }
-// SE PUEDE USAR USERNAME EN USUARIO
-// LOS SERVICE
-//

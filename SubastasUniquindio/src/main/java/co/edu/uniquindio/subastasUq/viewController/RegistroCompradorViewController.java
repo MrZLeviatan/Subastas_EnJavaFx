@@ -73,7 +73,7 @@ public class RegistroCompradorViewController {
     public boolean verificacion () {
 
         String mensaje = "";
-        if (!txtCedula.getText().isEmpty());
+        if (!txtCedula.getText().isBlank());
 
         try {
             Integer.parseInt(txtCedula.getText());
@@ -158,20 +158,19 @@ public class RegistroCompradorViewController {
 
     private void registar() {
         CompradorDto compradorDto = construirCompradorDto();
-        System.out.println(compradorDto.nombre());
+        System.out.println(compradorDto);
         if (datosValidosCompradorDto(compradorDto)) {
-            if (verificacion()){
-                if (registroCompradorController.agregarComprador(compradorDto)) {
+            if (registroCompradorController.agregarComprador(compradorDto)) {
                     mostrarMensaje("Notificación comprador", "Comprador creado", "El comprador se ha creado con éxito", Alert.AlertType.INFORMATION);
                     limpiarCampos();
-                } else {
+            } else {
                     mostrarMensaje("Notificacion comprador", "Comprador no creado", "los datos ingresados son invalidos", Alert.AlertType.ERROR);
-                }
-            } else{
-                mostrarMensaje("Notificacion comprador", "Comprador no creado", "los datos ingresados son invalidos", Alert.AlertType.ERROR);
             }
+        } else{
+            mostrarMensaje("Notificacion comprador", "Comprador no creado", "los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
     }
+
 
     private void mostrarMensaje(String titulo, String header, String contenido, Alert.AlertType alertType) {
         Alert aler = new Alert(alertType);

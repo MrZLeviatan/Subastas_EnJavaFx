@@ -14,7 +14,7 @@ public class RegistroCompradorController implements IRegistroCompradorController
     @Override
     public boolean agregarComprador(CompradorDto compradorDto){
 
-        System.out.println(compradorDto.edad()+"-------------------------------------------------");
+        System.out.println(compradorDto);
         return modelFactoryController.addComprador(compradorDto);
     }
 
