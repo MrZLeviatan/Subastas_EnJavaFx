@@ -124,6 +124,7 @@ public class RegistroAnuncianteViewController {
         if(datosValidosAnuniante(anuncianteDto)) {
             if (verificacion()) {
                 if (registroAnuncianteService.addAnunciante(anuncianteDto)) {
+                    System.out.println(anuncianteDto);
                     mostrarMensaje("Notificación anunciante", "Anunciante creado", "El anunciante se ha creado con éxito", Alert.AlertType.INFORMATION);
                     limpiarCampos();
                 } else {

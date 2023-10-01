@@ -158,9 +158,10 @@ public class RegistroCompradorViewController {
 
     private void registar() {
         CompradorDto compradorDto = construirCompradorDto();
-        System.out.println(compradorDto);
+
         if (datosValidosCompradorDto(compradorDto)) {
             if (registroCompradorController.agregarComprador(compradorDto)) {
+                    System.out.println(compradorDto);
                     mostrarMensaje("Notificación comprador", "Comprador creado", "El comprador se ha creado con éxito", Alert.AlertType.INFORMATION);
                     limpiarCampos();
             } else {

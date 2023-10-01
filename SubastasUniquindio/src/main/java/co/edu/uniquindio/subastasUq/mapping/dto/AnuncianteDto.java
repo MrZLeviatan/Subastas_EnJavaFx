@@ -13,12 +13,13 @@ public record AnuncianteDto(
 
     @Override
     public String toString(){
-        return "Anunciante{"+
+        return "Anunciante{" +
                 "nombre:" + nombre+ '\''+
                 "apellido: "+ apellido + '\''+
                 "cedula: "+ cedula+ '\''+
                 "edad" + edad + '\''+
-                "usuario: "+ usuarioDto+ '\''
+                "usuario: "+ usuarioDto+ '\''+
+                "}"
                 ;
     }
 
