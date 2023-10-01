@@ -4,7 +4,6 @@ import co.edu.uniquindio.subastasUq.controller.AnuncioController;
 import co.edu.uniquindio.subastasUq.mapping.dto.AnuncioDto;
 import co.edu.uniquindio.subastasUq.mapping.dto.ProductoDto;
 import co.edu.uniquindio.subastasUq.mapping.dto.PujaDto;
-import co.edu.uniquindio.subastasUq.model.Producto;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,7 +22,7 @@ public class AnuncioViewController {
     AnuncioController anuncioServices;
     ObservableList<ProductoDto>productoDtos;
     ImageView imageView = new ImageView();
-    //--------
+    //---------------------------------------
 
 
     // elementos Fxml

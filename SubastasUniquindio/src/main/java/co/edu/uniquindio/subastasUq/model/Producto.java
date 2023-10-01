@@ -1,17 +1,15 @@
 package co.edu.uniquindio.subastasUq.model;
 
+import javafx.scene.image.Image;
+
 public class Producto {
 
     private String nombre;
     private String descripcion;
-    private Byte imagen;
+    private Image imagen;
     private TipoProductos tipoProductos;
 
-    public Producto(String nombre, String descripcion, Byte imagen, TipoProductos tipoProductos) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.imagen = imagen;
-        this.tipoProductos = tipoProductos;
+    public Producto() {
     }
 
     public String getNombre() {
@@ -30,11 +28,11 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public Byte getImagen() {
+    public Image getImagen() {
         return imagen;
     }
 
-    public void setImagen(Byte imagen) {
+    public void setImagen(Image imagen) {
         this.imagen = imagen;
     }
 
