@@ -59,7 +59,6 @@ public class AutentificacionViewController {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(SubastaAplication.class.getResource("co/edu/uniquindio/subastasUq/PanelComprador.fxml"));
                     //new FXMLLoader(getClass().getResource("../../../../../../resources/co/edu/uniquindio/subastasUq/PanelComprador.fxml"));
-
             Parent root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();

@@ -136,8 +136,8 @@ public class RegistroCompradorViewController {
             mensaje += "el apellido es invalido \n";
         if (compradorDto.cedula() == null || compradorDto.cedula().isBlank())
             mensaje += "la cedula es invalida \n";
-        if (compradorDto.edad() == null)
-            mensaje += "la edad es invalida \n";
+        if(compradorDto.edad() <18||compradorDto.edad()==null)
+            mensaje+="la persona es menor de edad\n";
         if (compradorDto.direccion() == null || compradorDto.direccion().isBlank())
             mensaje += "la direccion es invalida \n";
         if (compradorDto.usuarioDto() == null)

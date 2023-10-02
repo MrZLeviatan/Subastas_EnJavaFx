@@ -137,7 +137,11 @@ public class SubastasUq implements ISubasta {
     }
 
     public Anunciante obtenerAnunciante(String cedula) {
-        return listaAnunciantes.stream().filter(anunciante -> anunciante.getCedula().equals(cedula)).findFirst().get();
+        return listaAnunciantes
+                .stream()
+                .filter(anunciante -> anunciante.getCedula().equals(cedula))
+                .findFirst()
+                .get();
     }
 
     public Comprador obtenerComprador(String cedula){
@@ -178,7 +182,10 @@ public class SubastasUq implements ISubasta {
     }
     //metodo para filtrar la lista
     public List<Anuncio> filtrarProductos(String codigo,String nombreAnunciante, String nombreProducto){
-        return listaAnuncios.stream().filter(AnuncioUtils.buscarPorTodo(codigo,nombreAnunciante,nombreProducto)).collect(Collectors.toList());
+        return listaAnuncios
+                .stream()
+                .filter(AnuncioUtils.buscarPorTodo(codigo,nombreAnunciante,nombreProducto))
+                .collect(Collectors.toList());
     }
 
 

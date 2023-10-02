@@ -6,7 +6,7 @@ public class Producto {
 
     private String nombre;
     private String descripcion;
-    private Image imagen;
+
     private TipoProductos tipoProductos;
 
     public Producto() {
@@ -28,13 +28,6 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public Image getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(Image imagen) {
-        this.imagen = imagen;
-    }
 
     public TipoProductos getTipoProductos() {
         return tipoProductos;

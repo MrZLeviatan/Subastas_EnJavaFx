@@ -39,7 +39,6 @@ public class ModelFactoryController implements IModelFactoryController {
     }//me llama al model factory
 
     public ModelFactoryController() throws Exception {
-        System.out.println("invocación clase singleton");
         subastaUq = SubastaUqUtils.inicializarDatos();
     }
 
@@ -113,9 +112,14 @@ public class ModelFactoryController implements IModelFactoryController {
     public boolean addComprador(CompradorDto compradorDto) { //añade el compradorDto
         try {
             System.out.println("entra al modelFactory");
-            if (!subastaUq.usuarioExiste(compradorDto.cedula())&&!subastaUq.correoExistente(compradorDto.usuarioDto().correo())) {
-                Comprador comprador = mapper.compradorDtoToComprador(compradorDto);
-                getSubastaUq().addUsuario(comprador);
+            if (!subastaUq.usuarioExiste(compradorDto.cedula())) {
+                if(!subastaUq.correoExistente(compradorDto.usuarioDto().correo())){
+                    Comprador comprador = mapper.compradorDtoToComprador(compradorDto);
+                    getSubastaUq().addUsuario(comprador);
+                }else {
+                    return false;
+                }
+
             }
             return true;
         }catch (Exception e){ //porque no me deja poner el CompradorException

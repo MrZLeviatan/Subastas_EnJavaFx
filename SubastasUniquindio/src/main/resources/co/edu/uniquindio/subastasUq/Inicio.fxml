@@ -33,12 +33,13 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
+            <TextField fx:id="txtAnunciante" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label text="Codigo">
                <font>
                   <Font name="Cambria Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtCodigo" GridPane.columnIndex="1" />
+            <TextField fx:id="txtCodigo" text="afaaf" GridPane.columnIndex="1" />
             <Label layoutX="10.0" layoutY="15.0" text="Anunciante:" GridPane.rowIndex="1">
                <font>
                   <Font name="Cambria Bold" size="18.0" />
@@ -49,7 +50,6 @@
                   <Font name="Cambria Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtAnunciante" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="txtProducto" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>

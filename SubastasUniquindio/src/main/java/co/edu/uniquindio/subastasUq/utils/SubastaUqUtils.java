@@ -12,7 +12,7 @@ public class SubastaUqUtils {
                         ,"tombe"
                         ,"123445"
                         ,12
-                        ,new Usuario("andrey3681","1234","andrey3681.ay@gmail.com"))
+                        ,new Usuario("andrey3681","1234","1234"))
         );
         subastasUq.addUsuario(
                 new Comprador(

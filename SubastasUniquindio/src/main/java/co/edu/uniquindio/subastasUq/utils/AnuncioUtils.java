@@ -18,6 +18,8 @@ public class AnuncioUtils {
         return anuncio -> anuncio.getProducto().getNombre().equals(nombreProducto);
     }
 
+
+
     public static Predicate<Anuncio> buscarPorTodo(String codigo,String nombreAnunciante,String nombreProducto) {
         Predicate<Anuncio> predicado = anuncio -> true;
         if( codigo != null && !codigo.isBlank() ){

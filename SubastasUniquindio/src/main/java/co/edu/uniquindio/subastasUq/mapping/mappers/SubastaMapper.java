@@ -13,12 +13,12 @@ import java.util.List;
 @Mapper
 public interface SubastaMapper {
 
+
+
+
     SubastaMapper INSTANCE= Mappers.getMapper(SubastaMapper.class);
 
-    @Named("compradorToCompradorDto")
-    CompradorDto compradorToCompradorDto(Comprador comprador);
 
-    Comprador compradorDtoToComprador(CompradorDto compradorDto);
     
 
     @Named("productoToProductoDto")
@@ -46,7 +46,15 @@ public interface SubastaMapper {
     @IterableMapping(qualifiedByName = "productoToProductoDto")
     List<ProductoDto> getProductosDto(List<Producto> list);
 
-    Anunciante anuncianteDtoToAnunciante(AnuncianteDto anuncianteDto);
 
+
+    @Named("anuanteDtoToAnunciante")
+    Anunciante anuncianteDtoToAnunciante(AnuncianteDto anuncianteDto);
     AnuncianteDto anuncianteToAnuncianteDto(Anunciante obtenerAnuncianteCorreo);
+
+
+    @Named("compradorToCompradorDto")
+    CompradorDto compradorToCompradorDto(Comprador comprador);
+    Comprador compradorDtoToComprador(CompradorDto compradorDto);
+
 }
