@@ -49,24 +49,28 @@ public class AutentificacionViewController {
     private void ingresar() throws IOException {
         if(verificarCampos())
         if(autentificacionServices.auntetificarAnunciante(txtUsario.getText(),txtContraseña.getText())){
-
-            System.out.println("hola");
-
-
-        } else if (autentificacionServices.autentificarComprador(txtUsario.getText(),txtContraseña.getText())) {
-
-
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(SubastaAplication.class.getResource("co/edu/uniquindio/subastasUq/PanelComprador.fxml"));
-                    //new FXMLLoader(getClass().getResource("../../../../../../resources/co/edu/uniquindio/subastasUq/PanelComprador.fxml"));
+            loader.setLocation(SubastaAplication.class.getResource("PanelComprador.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.showAndWait();
-            System.out.println("hola");
 
+
+
+
+
+        } else if (autentificacionServices.autentificarComprador(txtUsario.getText(),txtContraseña.getText())) {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(SubastaAplication.class.getResource("PanelComprador.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.showAndWait();
         }
         else {
             mostrarMensaje("seccion invalida","seccion no iniciada", "datos incorrectos verificar", Alert.AlertType.INFORMATION);

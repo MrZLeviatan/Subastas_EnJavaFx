@@ -69,10 +69,13 @@ public class PujasViewController {
     @FXML
     private void initialize(){
         pujasService= new PujasController();
-        listenerSelectionPuja();
-        listenerSelectionAnuncio();
+      //  listenerSelectionPuja();
+      //  listenerSelectionAnuncio();
         obtenerAnuncios();
         initDataBinding();
+        tablePujas.setItems(listPujaDtos);
+        tableAnuncios.setItems(listAnuncioDto);
+
 
     }
 
