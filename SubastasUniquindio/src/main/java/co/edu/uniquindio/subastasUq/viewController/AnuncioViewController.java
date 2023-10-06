@@ -59,7 +59,7 @@ public class AnuncioViewController {
     @FXML
     private void initialize(){
         anuncioServices=new AnuncioController();
-        iniciarCombox();
+      //  iniciarCombox();
     }
     private void iniciarCombox(){
         obtenerProductos();

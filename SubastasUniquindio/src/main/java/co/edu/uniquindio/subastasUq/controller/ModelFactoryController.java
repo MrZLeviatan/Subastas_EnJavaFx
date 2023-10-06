@@ -8,6 +8,7 @@ import co.edu.uniquindio.subastasUq.mapping.mappers.SubastaMapper;
 import co.edu.uniquindio.subastasUq.model.*;
 import co.edu.uniquindio.subastasUq.utils.SubastaUqUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ModelFactoryController implements IModelFactoryController {
@@ -54,8 +55,8 @@ public class ModelFactoryController implements IModelFactoryController {
         anuncianteDtoLogeado =null;
         compradorDtoLogeado =null;
     }
-
     //final metodo cerrarSeccion------------------------------------
+
 
     //metodos Anunciante------------------------------------------------------------------------------
 
@@ -68,10 +69,15 @@ public class ModelFactoryController implements IModelFactoryController {
     public boolean addAnunciante(AnuncianteDto anuncianteDto) {
         try {
             if(!subastaUq.usuarioExiste(anuncianteDto.cedula())){
-                Anunciante anunciante= mapper.anuncianteDtoToAnunciante(anuncianteDto);
-                getSubastaUq().addUsuario(anunciante);
+                if(!subastaUq.correoExistente(anuncianteDto.usuarioDto().correo())){
+                    Anunciante anunciante= mapper.anuncianteDtoToAnunciante(anuncianteDto);
+                    getSubastaUq().addUsuario(anunciante);
+                    return true;
+                }else {
+                    return false;
+                }
             }
-            return true;
+            return false;
         }catch (Exception e){
             e.getMessage();
             return false;
@@ -116,12 +122,13 @@ public class ModelFactoryController implements IModelFactoryController {
                 if(!subastaUq.correoExistente(compradorDto.usuarioDto().correo())){
                     Comprador comprador = mapper.compradorDtoToComprador(compradorDto);
                     getSubastaUq().addUsuario(comprador);
+                    return true;
                 }else {
                     return false;
                 }
 
             }
-            return true;
+            return false;
         }catch (Exception e){ //porque no me deja poner el CompradorException
             e.getMessage();
             return false;
@@ -194,14 +201,27 @@ public class ModelFactoryController implements IModelFactoryController {
 
     public List<PujaDto> obtenerPujasAnuncio(AnuncioDto anuncioSelecionado) {
         Anunciante anunciante=mapper.anuncianteDtoToAnunciante(anuncianteDtoLogeado);
-        List<Puja>listaPujaAnuncio=anunciante
-                .getListaAnunciosAnunciante()
-                .stream()
-                .filter(anuncio -> anuncio.getCodigoAnuncio().equals(anuncioSelecionado.codigoAnuncio()))
-                .findFirst()
-                .get()
-                .getListaPujaProducto();
-        return mapper.getPujasDto(listaPujaAnuncio);
+        for (Anuncio anuncio:anunciante.getListaAnunciosAnunciante()) {
+            if(anuncio != null && anuncio.getCodigoAnuncio().equals(anuncioSelecionado.codigoAnuncio())){
+               return mapper.getPujasDto(anuncio.getListaPujaProducto());
+            }
+        }
+        List<PujaDto>x=new ArrayList<>();
+        x.add(new PujaDto(
+                "huhsdahhjsd",
+                22,
+                null,
+                null));
+        return x;
+
+//        List<Puja>listaPujaAnuncio=anunciante
+//                .getListaAnunciosAnunciante()
+//                .stream()
+//                .filter(anuncio -> anuncio.getCodigoAnuncio().equals(anuncioSelecionado.codigoAnuncio()))
+//                .findFirst()
+//                .get()
+//                .getListaPujaProducto();
+//        return mapper.getPujasDto(listaPujaAnuncio);
     }
 
     //final metodos puja-------------------------------------------------------------------

@@ -4,6 +4,7 @@ import co.edu.uniquindio.subastasUq.mapping.dto.AnuncioDto;
 import co.edu.uniquindio.subastasUq.mapping.dto.PujaDto;
 import javafx.beans.property.SimpleSetProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,8 +18,8 @@ public class PujasViewController {
     //Variables globales de la interfas
 
     PujasController pujasService;
-    ObservableList<AnuncioDto>listAnuncioDto;
-    ObservableList<PujaDto> listPujaDtos;
+    ObservableList<AnuncioDto>listAnuncioDto= FXCollections.observableArrayList();
+    ObservableList<PujaDto> listPujaDtos=FXCollections.observableArrayList();
     AnuncioDto anuncioSelecionado;
     PujaDto pujaSelecionada;
 
@@ -69,9 +70,9 @@ public class PujasViewController {
     @FXML
     private void initialize(){
         pujasService= new PujasController();
-      //  listenerSelectionPuja();
-      //  listenerSelectionAnuncio();
-        obtenerAnuncios();
+       listenerSelectionPuja();
+       listenerSelectionAnuncio();
+       obtenerAnuncios();
         initDataBinding();
         tablePujas.setItems(listPujaDtos);
         tableAnuncios.setItems(listAnuncioDto);

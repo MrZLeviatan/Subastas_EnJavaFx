@@ -10,9 +10,9 @@ import java.util.stream.Collectors;
 
 public class SubastasUq implements ISubasta {
 
-    ArrayList<Anunciante> listaAnunciantes = new ArrayList<>();
-    ArrayList<Comprador> listaComprador = new ArrayList<>();
-    ArrayList<Anuncio> listaAnuncios = new ArrayList<>();
+    private ArrayList<Anunciante> listaAnunciantes = new ArrayList<>();
+    private ArrayList<Comprador> listaComprador = new ArrayList<>();
+    private ArrayList<Anuncio> listaAnuncios = new ArrayList<>();
 
 
 

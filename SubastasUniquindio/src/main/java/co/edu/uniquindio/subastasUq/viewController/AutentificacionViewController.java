@@ -50,7 +50,7 @@ public class AutentificacionViewController {
         if(verificarCampos())
         if(autentificacionServices.auntetificarAnunciante(txtUsario.getText(),txtContraseña.getText())){
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(SubastaAplication.class.getResource("PanelComprador.fxml"));
+            loader.setLocation(SubastaAplication.class.getResource("PanelAnunciante.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();

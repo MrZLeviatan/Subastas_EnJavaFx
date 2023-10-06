@@ -15,7 +15,7 @@ public class Anuncio {
 
     private double precioInicial;
 
-    ArrayList<Puja> listaPujaProducto = new ArrayList<Puja>();
+    private ArrayList<Puja> listaPujaProducto = new ArrayList();
 
 
     public Anuncio(){

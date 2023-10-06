@@ -1,6 +1,6 @@
 package co.edu.uniquindio.subastasUq.model;
 
-public enum TipoProductos {
+public enum TipoProductos  {
 
    TECNOLOGIA,
     HOGAR,
