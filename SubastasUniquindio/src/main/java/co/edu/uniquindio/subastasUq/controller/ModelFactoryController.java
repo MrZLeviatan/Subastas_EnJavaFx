@@ -120,6 +120,7 @@ public class ModelFactoryController implements IModelFactoryController {
             System.out.println("entra al modelFactory");
             if (!subastaUq.usuarioExiste(compradorDto.cedula())) {
                 if(!subastaUq.correoExistente(compradorDto.usuarioDto().correo())){
+                    Usuario usuario=mapper.
                     Comprador comprador = mapper.compradorDtoToComprador(compradorDto);
                     getSubastaUq().addUsuario(comprador);
                     return true;

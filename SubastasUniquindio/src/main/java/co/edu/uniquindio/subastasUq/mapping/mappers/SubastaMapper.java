@@ -57,4 +57,5 @@ public interface SubastaMapper {
     CompradorDto compradorToCompradorDto(Comprador comprador);
     Comprador compradorDtoToComprador(CompradorDto compradorDto);
 
+    @Named()
 }

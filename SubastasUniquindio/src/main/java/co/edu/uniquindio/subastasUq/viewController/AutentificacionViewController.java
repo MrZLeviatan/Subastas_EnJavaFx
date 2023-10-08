@@ -57,20 +57,8 @@ public class AutentificacionViewController {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.showAndWait();
-
-
-
-
-
         } else if (autentificacionServices.autentificarComprador(txtUsario.getText(),txtContraseña.getText())) {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(SubastaAplication.class.getResource("PanelComprador.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setScene(scene);
-            stage.showAndWait();
+            cambiarVentana("PanelComprador.fxml");
         }
         else {
             mostrarMensaje("seccion invalida","seccion no iniciada", "datos incorrectos verificar", Alert.AlertType.INFORMATION);
@@ -101,8 +89,8 @@ public class AutentificacionViewController {
     }
 
     public void cambiarVentana(String nombreFxml) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(nombreFxml));
-        loader.setLocation(getClass().getResource(nombreFxml));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(SubastaAplication.class.getResource(nombreFxml));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         Stage stage = new Stage();

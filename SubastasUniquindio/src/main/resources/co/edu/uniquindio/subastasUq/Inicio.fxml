@@ -39,7 +39,7 @@
                   <Font name="Cambria Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtCodigo" text="afaaf" GridPane.columnIndex="1" />
+            <TextField fx:id="txtCodigo" GridPane.columnIndex="1" />
             <Label layoutX="10.0" layoutY="15.0" text="Anunciante:" GridPane.rowIndex="1">
                <font>
                   <Font name="Cambria Bold" size="18.0" />
